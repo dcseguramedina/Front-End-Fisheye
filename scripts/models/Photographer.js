@@ -10,7 +10,7 @@ export default class Photographer {
         this.portrait = portrait;
     }
 
-    displayData() {
+    displayCardInfo() {
         const photographersSection = document.querySelector(".photographer_section")
     
         
@@ -47,7 +47,7 @@ export default class Photographer {
         //Attach the "h3" tag to photographe's article
         photographeArticle.appendChild(photographeLocation);
 
-        //Create a "strong" tag for each photographe
+        //Create a "span" tag for each photographe
         const photographeTagline = document.createElement("span");
         photographeTagline.textContent = this.tagline;
         //Attach the "strong" tag to photographe's article
@@ -58,5 +58,60 @@ export default class Photographer {
         photographePrice.textContent = this.price + '€/jour';
         //Attach the "p" tag to photographe's article
         photographeArticle.appendChild(photographePrice);
+    }
+
+    displayHeaderInfo() {
+        const photographeDetails = document.querySelector(".photographer_info");        
+
+        // Create a "h1" tag for the name
+        const photographeName = document.createElement("h1");        
+        photographeName.textContent = this.name;
+        // Attach the "h1" tag to photographer details
+        photographeDetails.appendChild(photographeName);
+
+        // Create a "h2" tag for the location
+        const photographeLocation = document.createElement("h2");
+        photographeLocation.textContent = this.city + ', ' + this.country;
+        // Attach the "h2" tag to photographer details
+        photographeDetails.appendChild(photographeLocation);
+ 
+        // Create a "p" tag for the tagline
+        const photographeTagline = document.createElement("p");
+        photographeTagline.textContent = this.tagline;
+        // Attach the "p" tag to photographer details
+        photographeDetails.appendChild(photographeTagline);
+
+        const photographeImage = document.querySelector(".photographer_portrait");
+        // Set the image attributs
+        photographeImage.src = `../../assets/photographers/${this.portrait}`;
+        photographeImage.alt = 'portrait du photographer ' + this.name;
+    }
+
+    displayAside() {
+        const main = document.querySelector("#main");
+
+        const asideInfo = document.createElement("aside");
+        main.appendChild(asideInfo);  
+
+        const likesInfo = document.createElement("div");
+        asideInfo.appendChild(likesInfo);
+
+        //Create a "p" tag for each media likes
+        const likes = document.createElement("p");
+        likes.textContent = 'likes';
+        //Attach the "p" tag to the media info
+        likesInfo.appendChild(likes);      
+        
+        const likesIcon = document.createElement("i");
+        likesIcon.classList.add('fa-solid');
+        likesIcon.classList.add('fa-heart');
+        likesInfo.appendChild(likesIcon);
+
+        //Create a "p" tag for each photographe
+        const price = document.createElement("p");
+        price.textContent = this.price + '€/jour';
+        //Attach the "p" tag to photographe's article
+        asideInfo.appendChild(price);
+        
     }
 }

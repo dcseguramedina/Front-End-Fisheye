@@ -2,29 +2,31 @@ import Photographer from "../models/Photographer.js"
 
 let photographer = new Photographer()
 
-async function getPhotographers() {
+async function getData() {
     try {
         const response = await fetch('../../data/photographers.json')
         const data = await response.json()
-        const photographers = data.photographers
-
-        for(let details of photographers) {
-            photographer = new Photographer(
-                details.name,
-                details.id,
-                details.city,
-                details.country,
-                details.tagline,
-                details.price,
-                details.portrait
-            )
-
-            photographer.displayData()
-        }
+        getPhotographers(data)
     }
     catch (error) {
         alert(`Une erreur s'est produite. Veuillez réessayer`);
     }
 }
+getData()   
 
-getPhotographers()   
+function getPhotographers(data) {
+    const photographersInfo = data.photographers
+
+    for(let info of photographersInfo) {
+        photographer = new Photographer(
+            info.name,
+            info.id,
+            info.city,
+            info.country,
+            info.tagline,
+            info.price,
+            info.portrait
+        )
+        photographer.displayCardInfo()
+    }
+}

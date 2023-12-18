@@ -1,21 +1,34 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
     <meta charset="utf-8">
-    <link rel="icon" type="image/png" href="assets/favicon.png">
-    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Travail des photographes">
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link href="assets/favicon.png" rel="icon" type="image/png"  />
+    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/991beb3e09.js" crossorigin="anonymous"></script>
     <title>Fisheye - photographe </title>
   </head>
+
   <body>
-    <header>
-      <img src="assets/images/logo.png" class="logo" />
+    <header role="banner">
+      <a href="./index.html" aria-label="image link to fisheye home page" >
+        <img class="logo" src="assets/images/logo.png" alt="fisheye logo"/>
+      </a>
     </header>
-    <main id="main">
-      <div class="photograph-header">
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
-      </div>
+
+    <main id="main" role="main">
+      <header class="photographer_header" role="banner">
+        <span class="photographer_info" aria-label="photographer details"></span>
+        <button class="contact_button" name="contact me" type="button">Contactez-moi</button>
+        <img class="photographer_portrait" src="" alt="">
+      </header>
+      <section class="photographer_gallery" aria-label="photographer gallery">
+        <article class="photographer_gallery_medias"></article>
+      </section>
     </main>
+
     <div id="contact_modal">
 			<div class="modal">
 				<header>
@@ -31,7 +44,10 @@
 				</form>
 			</div>
 		</div>
-    <script src="/scripts/pages/photographer.js"></script>
-    <script src="/scripts/utils/contactForm.js"></script>
+
+    <script type="module" src="scripts/models/Photographer.js"></script>
+    <script type="module" src="scripts/factories/MediasFactory.js"></script>
+    <script type="module" src="/scripts/pages/photographer.js"></script>
+    <script type="module" src="/scripts/utils/contactForm.js"></script>
   </body>
 </html>

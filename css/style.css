@@ -1,19 +1,21 @@
 @import url("photographer.css");
 
 body {
-    margin: 0;
+    max-width: 1440px;
+    max-height: 1024px;
+    margin: auto;
     font-family: "DM Sans", sans-serif;
     font-style: normal;
     font-size: 100%;
     line-height: 1.5;
 }
 
-
 header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    width: 85%;
     height: 90px;
     padding-left: 100px;
 }
@@ -46,9 +48,14 @@ header a:focus:not(:focus-visible) {
     height: 50px;
 }
 
-h1 {
+header h1 {
     margin-right: 100px;
     color: #901C1C;
+}
+
+main {
+    width: 85%;
+    padding-left: 100px;
 }
 
 .photographer_section {

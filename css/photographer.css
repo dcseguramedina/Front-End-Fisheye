@@ -1,24 +1,98 @@
-#contact_modal {
-    display: none;
+.photographer_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 92%;
+    height: 313px;
+    background-color: #FAFAFA;
 }
 
-.photograph-header {
-    background-color: #FAFAFA;
-    height: 300px;
-    margin: 0 100px;
+.photographer_info {
+    display: flex;
+    flex-direction: column;
+    height: 200px;
+    margin-right: 50px;
+}
+
+.photographer_info h1  {
+    margin: 0;
+    padding: 0;
+    font-size: 4em;
+    font-weight: 400;
+    color: #D3573C;
+}
+
+.photographer_info p  {
+    font-size: 1.2em;
+    font-weight: 400;
+    color: #525252;
+}
+
+.photographer_info h2  {
+    margin: 0;
+    padding: 0;
+    font-size: 1.5em;
+    font-weight: 400;
+    color: #901C1C;
 }
 
 .contact_button {
+    width: 170px;
+    height: 70px;
+    padding: 11px;  
+    border: none;
+    border-radius: 5px;
+    background-color: #901C1C;   
     font-size: 20px;
     font-weight: bold;
     color: white;
-    padding: 11px;
-    width: 170px;
-    height: 70px;
-    border: none;
-    background-color: #901C1C;
-    border-radius: 5px;
     cursor: pointer;
+}
+
+.contact_button:hover {
+    background-color: #D3573C;
+    color: black;
+    /* transform: scale(1.1); */
+}
+
+.contact_button:focus {
+    /* Provide an alternative for browsers
+    which do not support :focus-visible */
+    outline: 4px solid #D3573C;
+    background-color: #D3573C;
+    color: black;
+    /* transform: scale(1.1); */
+}
+
+.contact_button:focus:not(:focus-visible) {
+    /* Remove mouse focus indicator for 
+    browsers that support :focus-visible */
+    background-color: #D3573C;
+    color: black;
+    /* transform: scale(1.1); */
+}
+
+.contact_button:focus:not(:focus-visible) {
+    /* Draw an outline for browsers that 
+    support :focus-visible when the
+    navigation is by keyboard */
+    outline: 4px dashed #D3573C;
+    background-color: #D3573C;
+    color: black;
+    /* transform: scale(1.1); */      
+}
+
+.photographer_portrait {
+    height: 200px;
+    width: 200px;
+    margin-right: 50px;
+    border-radius: 100px;
+    object-fit: cover;
+}
+
+
+#contact_modal {
+    display: none;
 }
 
 .modal {
@@ -73,4 +147,118 @@ form input {
     height: 68px;
     border: none;
     border-radius: 5px;
+}
+
+.photographer_gallery {
+    width: 100%;
+    margin-top: 100px;
+}
+
+.photographer_gallery_medias {
+	display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 40px 80px; 
+}
+
+.photographer_gallery_medias article {
+	display: flex;
+	flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+	
+	width: 350px;
+	border-radius: 10px;
+}
+.photographer_gallery_medias article a {
+	text-decoration: none;
+}
+
+.photographer_gallery_medias article a img {
+	width: 350px;
+	height: 300px;
+	object-fit: cover;
+	border-radius: 5px;
+}
+
+.photographer_gallery_medias article a video {
+    display: inline;
+	width: 350px;
+	height: 300px;
+	object-fit: cover;
+	border-radius: 5px;
+}
+
+.photographer_gallery_medias article span {	
+	display: flex;
+    justify-content: space-between;
+    width: 350px;
+    height: 30px;
+}
+
+.photographer_gallery_medias article span h3 {
+    margin: 0;
+    color: #901C1C;
+    font-size: 1.5em;
+    font-weight: 400;
+}
+.photographer_gallery_medias article span div {
+	display: flex;
+    justify-content: center;
+}
+
+.photographer_gallery_medias article span div p {
+	margin: 0;
+    margin-right: 5px;
+    color: #901C1C;
+    font-size: 1.5em;
+    font-weight: 500;
+}
+
+.photographer_gallery_medias article span div i {
+    width: 21px;
+    height: 24px;
+    color: #901C1C;
+}
+
+aside {
+    position: fixed;
+    right: 5%;
+    bottom: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 376px;
+    height: 50px;
+    padding: 5px 30px;
+    border-radius: 5px 5px 0 0;
+    background-color: #D3573C;
+}
+
+aside div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+aside div p {
+    align-self: center;
+    color:#000000;
+    font-size: 1.5em;
+    font-weight: 500;
+}
+
+aside div i {
+    width: 21px;
+    height: 24px;
+    margin-left: 10px;
+    align-self: center;
+    font-size: 1.5em;
+}
+
+aside p {
+    align-self: center;
+    color:#000000;
+    font-size: 1.5em;
+    font-weight: 500;
+
 }
