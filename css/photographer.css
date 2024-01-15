@@ -36,7 +36,8 @@
     color: #901C1C;
 }
 
-.contact_button {
+.contact_button, 
+.submit_button {
     width: 170px;
     height: 70px;
     padding: 11px;  
@@ -72,16 +73,6 @@
     /* transform: scale(1.1); */
 }
 
-.contact_button:focus:not(:focus-visible) {
-    /* Draw an outline for browsers that 
-    support :focus-visible when the
-    navigation is by keyboard */
-    outline: 4px dashed #D3573C;
-    background-color: #D3573C;
-    color: black;
-    /* transform: scale(1.1); */      
-}
-
 .photographer_portrait {
     height: 200px;
     width: 200px;
@@ -90,36 +81,44 @@
     object-fit: cover;
 }
 
-
 #contact_modal {
     display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    padding-top: 50px;
+    background-color : rgba(0,0,0,0.50);
 }
 
-.modal {
-    border-radius: 5px;
-    background-color: #DB8876;
-    width: 50%;
+.modal_content {  
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: space-between;
-    padding: 35px;
+    align-items: center;
+    width: 30%;
     margin: auto;
+    padding: 35px;
+    border-radius: 5px;
+    background-color: #DB8876;
 }
 
-.modal header {
+.modal_content header {
     justify-content: space-between;
     width: 100%;
+    padding: 0;
 }
 
-.modal header img {
-    cursor: pointer;
-}
-
-.modal header h2 {
+.modal_content header h2 {
     font-size: 64px;
     font-weight: normal;
     text-align: center;
+}
+
+.close_button {
+    cursor: pointer;
 }
 
 form {
@@ -129,12 +128,7 @@ form {
     align-items: flex-start;
 }
 
-form label {
-    color: #312E2E;
-    font-size: 36px;
-}
-
-form div {
+.form_data {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -142,11 +136,26 @@ form div {
     margin-bottom: 26px;
 }
 
-form input {
+.text_label {
+    color: #312E2E;
+    font-size: 36px;
+}
+
+.text_control {
     width: 100%;
     height: 68px;
     border: none;
     border-radius: 5px;
+    color: #312E2E;
+    font-size: 36px;
+}
+
+.text_control:focus {
+    border-color: #312E2E;
+  }
+
+.message {
+    height: 136px;  
 }
 
 .photographer_gallery {
@@ -217,6 +226,9 @@ form input {
 .photographer_gallery_medias article span div i {
     width: 21px;
     height: 24px;
+    margin-left: 5px;
+    align-self: center;
+    font-size: 1.5em;
     color: #901C1C;
 }
 

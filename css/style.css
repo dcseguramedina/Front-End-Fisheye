@@ -35,15 +35,6 @@ header a:focus:not(:focus-visible) {
     /* transform: scale(1.1); */
 }
 
-header a:focus:not(:focus-visible) {
-    /* Draw an outline for browsers that 
-    support :focus-visible when the
-    navigation is by keyboard */
-    outline: 4px dashed #D3573C;
-    background: transparent; 
-    /* transform: scale(1.1); */      
-}
-
 .logo {
     height: 50px;
 }
@@ -94,15 +85,6 @@ main {
     /* Remove mouse focus indicator for 
     browsers that support :focus-visible */
     background: transparent;
-    /* transform: scale(1.1); */
-}
-
-.photographer_section article a:focus:not(:focus-visible) {
-    /* Draw an outline for browsers that 
-    support :focus-visible when the
-    navigation is by keyboard */
-    outline: 4px dashed #D3573C;
-    background: transparent;    
     /* transform: scale(1.1); */
 }
 

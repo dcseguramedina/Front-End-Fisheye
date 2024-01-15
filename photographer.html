@@ -28,23 +28,68 @@
         <article class="photographer_gallery_medias"></article>
       </section>
     </main>
-
+    
     <div id="contact_modal">
-			<div class="modal">
-				<header>
+      <div class="modal_content">
+        <header>
           <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
+          <img class="close_button" src="assets/icons/close.svg"/>
         </header>
-				<form>
-					<div>
-						<label>Prénom</label>
-						<input />
-					</div>
-          <button class="contact_button">Envoyer</button>
-				</form>
-			</div>
-		</div>
-
+        <form
+          id="submitBtn"
+          name="contact"
+          action="photographer.html"
+          method="get"
+        >          
+          <div class="form_data">
+            <label class="text_label" for="firstName">Prénom</label><br>
+            <input
+              id="firstName"
+              class="text_control"
+              type="text"              
+              name="firstName"
+              minlength="2"
+              required
+            />
+            <p id="firstNameErrorMsg" class="errorMsg"></p>
+          </div>
+          <div class="form_data">
+            <label class="text_label" for="lastName">Nom</label>
+            <input
+              id="lastName"
+              class="text_control"
+              type="text"
+              name="lastName"
+              minlength="2"
+              required
+            />
+            <p id="lastNameErrorMsg" class="errorMsg"></p>
+          </div>
+          <div class="form_data">
+            <label class="text_label" for="email">E-mail</label>
+            <input
+              id="email"
+              class="text_control"
+              type="email"
+              name="email"
+              required
+            />
+            <p id="emailErrorMsg" class="errorMsg"></p>
+          </div>
+          <div class="form_data">
+            <label class="text_label" for="message">Votre message</label>
+            <input
+              id="message"
+              class="text_control message"
+              type="text"
+              name="message"
+            />  
+          </div>                  
+          <button class="submit_button">Envoyer</button>
+        </form>
+      </div>
+    </div>	
+		
     <script type="module" src="scripts/models/Photographer.js"></script>
     <script type="module" src="scripts/factories/MediasFactory.js"></script>
     <script type="module" src="/scripts/pages/photographer.js"></script>
