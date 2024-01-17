@@ -117,7 +117,7 @@
     text-align: center;
 }
 
-.close_button {
+.close_button{
     cursor: pointer;
 }
 
@@ -160,13 +160,48 @@ form {
 
 .photographer_gallery {
     width: 100%;
-    margin-top: 100px;
+    margin-top: 20px;
+}
+
+.photographer_gallery_filter {
+    width: 25%;
+}
+
+.filter_text {
+    margin-bottom: 50px;
+    font-size: 1.2em;
+    font-weight: 700;
+    color: #000000;
+    
+}
+
+.filter_select {
+    margin-left: 10px;
+    padding: 10px 15px;
+    background-color: #901C1C;
+    border-radius: 5px;
+    font-size: 1.2em;
+    font-weight: 700;
+    color: #FFFFFF;
+    
+}
+
+.filter_option {
+    width: 170px;
+    height: 70px;
+    padding: 10px 15px;
+    background-color: #901C1C;
+    font-size: 1em;
+    font-weight: 700;
+    color: #FFFFFF;
+    
 }
 
 .photographer_gallery_medias {
 	display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 40px 80px; 
+    margin-top: 50px;
 }
 
 .photographer_gallery_medias article {
@@ -229,6 +264,81 @@ form {
     margin-left: 5px;
     align-self: center;
     font-size: 1.5em;
+    color: #901C1C;
+}
+
+#lightbox_modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color : #FFFFFF;
+}
+
+.lightbox_content {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    width: 75%;
+    height: 90%;  
+    margin: auto; 
+    margin-top: 5%; 
+    background-color: #FFFFFF;
+}
+
+.lightbox_side {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 3%;
+}
+
+#right, #left {
+    cursor: pointer;
+}
+
+#close_lightbox {
+    position: absolute;
+    top: 8%;
+    right: 3%;
+    cursor: pointer;
+}
+
+.lightbox_media {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 80%;
+    height: 90%;
+    margin: 10px;
+}
+
+.lightbox_media img {
+	width: 100%;
+    height: 95%;
+    margin: 10px;
+	object-fit:cover;
+	border-radius: 5px;
+}
+
+.lightbox_media video {
+	width: 850px;
+	height: 800px;
+    margin: 10px;
+	object-fit: cover;
+	border-radius: 5px;
+}
+
+.lightbox_media h3 {
+    margin: 10px;
+    font-size: 1.5em;
+    font-weight: 400;
     color: #901C1C;
 }
 

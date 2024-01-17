@@ -5,7 +5,6 @@ const modalBg = document.getElementById("contact_modal");
 const closeBtn = document.querySelector(".close_button");
 const close = document.querySelector(".submit_button");
 
-
 // Launch open modal event
 contactBtn.addEventListener("click", displayModal);
 
@@ -38,6 +37,7 @@ class Field {
 	addEvent() {
 	  this.docName.addEventListener("focusout", (event) => {
 		event.preventDefault();
+		console.log(this.docName.value);
 		this.checkField();
 	  })
 	}
@@ -56,31 +56,38 @@ class Field {
 	}
   }
   
-  // Create field object (firstName, lastName, email)
-  // Add eventListener (firstName, lastName, email)
-  let firstName = new Field(
+// Create field object (firstName, lastName, email)
+// Add eventListener (firstName, lastName, email)
+let firstName = new Field(
 	document.getElementById("firstName"),
 	new RegExp(/^(?=.*[A-Za-z].*[a-zA-Z])[A-Za-z\é\è\ê\ë\ï\œ\-\s]+$/),
 	document.getElementById("firstNameErrorMsg"),
 	`Veuillez entrer un prénom valide`
-  );
-  firstName.addEvent();
-  
-  let lastName = new Field(
+);
+firstName.addEvent();
+
+let lastName = new Field(
 	document.getElementById("lastName"),
 	new RegExp(/^(?=.*[A-Za-z].*[a-zA-Z])[A-Za-z\é\è\ê\ë\ï\œ\-\s]+$/),
 	document.getElementById("lastNameErrorMsg"),
 	`Veuillez entrer un nom valide`
-  );
-  lastName.addEvent();
-  
-  let email = new Field(
+);
+lastName.addEvent();
+
+let email = new Field(
 	document.getElementById("email"),
 	new RegExp(/^[A-Za-z0-9_!#$%&'*+\/=?`{|}~^.-]+[@]{1}[A-Za-z0-9.-]+\.[\w-]{2,4}$/),
 	document.getElementById("emailErrorMsg"),
 	`Veuillez entrer une adresse mail valide`
-  );
-  email.addEvent();
+);
+email.addEvent();
+
+// Add eventListener (message)
+const message = document.getElementById("message");
+message.addEventListener("focusout", (event) => {
+	event.preventDefault();
+	console.log(message.value);
+});
 
 // Implement submit btn  
 // Recover the DOM element for the "submitBtn"
@@ -88,6 +95,6 @@ const submitBtn = document.getElementById("submitBtn");
 
 // // Listen to the click and check the inputs
 submitBtn.addEventListener("submit", (event) => {
-  	event.preventDefault();  
-	document.forms[0].reset()
-})
+  	event.preventDefault(); 
+	document.forms[0].reset();
+});

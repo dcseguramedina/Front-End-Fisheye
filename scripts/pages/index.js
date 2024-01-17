@@ -1,20 +1,13 @@
-import Photographer from "../models/Photographer.js"
+import getData from "../services/data.services.js";
+import Photographer from "../models/Photographer.js";
 
 let photographer = new Photographer()
 
-async function getData() {
-    try {
-        const response = await fetch('../../data/photographers.json')
-        const data = await response.json()
-        getPhotographers(data)
-    }
-    catch (error) {
-        alert(`Une erreur s'est produite. Veuillez réessayer`);
-    }
-}
-getData()   
+const data = await getData()
 
-function getPhotographers(data) {
+displayHomePage(data)
+
+function displayHomePage(data) {
     const photographersInfo = data.photographers
 
     for(let info of photographersInfo) {

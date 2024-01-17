@@ -1,6 +1,6 @@
 export default class Photographer {
     
-    constructor(name, id, city, country, tagline, price, portrait) {
+    constructor(name, id, city, country, tagline, price, portrait, likes) {
         this.name = name;
         this.id = id;
         this.city = city;
@@ -8,6 +8,7 @@ export default class Photographer {
         this.tagline = tagline;
         this.price = price;
         this.portrait = portrait;
+        this.likes = likes
     }
 
     displayCardInfo() {
@@ -98,7 +99,7 @@ export default class Photographer {
 
         //Create a "p" tag for each media likes
         const likes = document.createElement("p");
-        likes.textContent = 'likes';
+        likes.textContent = this.likes;
         //Attach the "p" tag to the media info
         likesInfo.appendChild(likes);      
         
