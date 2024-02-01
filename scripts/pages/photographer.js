@@ -56,42 +56,47 @@ function displayGalley(mediasInfo) {
     }
 }
 
-const filter = document.getElementById("filter")
-console.log(filter)
-
-filter.addEventListener("change", (e) => {
-    console.log('hello from event')
-    e.preventDefault()
-    filterMedias()   
-})
-
-function filterMedias() {
-    console.log('hello from filter')
-    const option = filter.options[filter.selectedIndex].value
-    console.log(option)
-
-    const gallery = document.querySelector(".photographer_gallery_medias");
-    console.log(gallery)
-
-    const listToFilter = Array.from(gallery.children);
-    console.log(listToFilter)
-
-    listToFilter.sort((a, b) => {
-
-          switch(option) {
-              case "title":
-                  return (a.title < b.title) ? -1 : 1;
-      
-              case "date":
-                  return new Date(b.date) - new Date(a.date);
-      
-              default:
-                  return b.likes - a.likes;
-          }
-
-          
+function filterGallery() {
+    const filter = document.getElementById("filter")
+    console.log(filter)
+    
+    filter.addEventListener("change", (e) => {
+        console.log('hello from event')
+        e.preventDefault()
+        sortMedias()   
     })
-    console.log(listToFilter)
 }
+filterGallery()
+
+function sortMedias() {
+    const option = filter.options[filter.selectedIndex].value;
+    const gallery = document.querySelector(".photographer_gallery_medias");
 
 
+    //DEBUT
+    const items = gallery.childNodes;
+    console.log(items)
+    const itemsList = [];
+    for (let i in items) {
+        if (items[i].nodeType == 1) { // get rid of the whitespace text nodes
+            itemsList.push(items[i]);
+        }
+    }
+    console.log(itemsList)
+    itemsList.sort(function(a, b) {
+        switch(option) {
+            case "title":
+                return (a.getAttribute('data-title') < b.getAttribute('data-title')) ? -1 : 1;
+    
+            case "date":
+                return (b.getAttribute('data-date') < a.getAttribute('data-date')) ? -1 : 1;
+    
+            default:
+                return (parseInt(a.getAttribute('data-likes')) < parseInt(b.getAttribute('data-likes'))) ? -1 : 1;
+        }
+    });
+
+    for (let i = 0; i < itemsList.length; ++i) {
+        gallery.appendChild(itemsList[i]);
+    }
+}

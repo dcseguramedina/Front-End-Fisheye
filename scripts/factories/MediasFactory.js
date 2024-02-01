@@ -37,16 +37,16 @@ class Medias {
         const mediaArticle = document.createElement("article");
         mediaArticle.className = "gallery_image";
         mediaArticle.ariaLabel = 'gallery image';
-        //Attach the "article" tag to gallery
+        mediaArticle.setAttribute("data-title", this.title);
+        mediaArticle.setAttribute("data-date", this.date);
+        mediaArticle.setAttribute("data-likes", this.likes);
         gallerySection.appendChild(mediaArticle);
 
         //Create an "a" tag to make the link to a media
         const mediaLink = document.createElement("a");
         mediaLink.className = "media_link";
-        //Set the "a" tag and its "href" attribute
         mediaLink.href = ``;
         mediaLink.ariaLabel = 'image link to media';
-        //Attach the "a" tag to the media
         mediaArticle.appendChild(mediaLink);
 
         mediaLink.appendChild(this.getSource());
@@ -59,13 +59,11 @@ class Medias {
 
         //Create a "span" tag for each media info
         const mediaInfo = document.createElement("span");
-        //Attach the "span" tag to the media
         mediaArticle.appendChild(mediaInfo);
 
         //Create a "h3" tag for each media title
         const mediaTitle = document.createElement("h3");        
         mediaTitle.textContent = this.title;
-        //Attach the "h2" tag to the media info
         mediaInfo.appendChild(mediaTitle);
 
         const mediaLikesInfo = document.createElement("div");
@@ -74,7 +72,6 @@ class Medias {
         //Create a "p" tag for each media likes
         const mediaLikes = document.createElement("p");
         mediaLikes.textContent = this.likes;
-        //Attach the "p" tag to the media info
         mediaLikesInfo.appendChild(mediaLikes);
 
         const mediaLikesIcon = document.createElement("i");
