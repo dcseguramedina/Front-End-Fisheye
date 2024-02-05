@@ -1,5 +1,11 @@
 @import url("photographer.css");
 
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
     max-width: 1440px;
     max-height: 1024px;
@@ -15,44 +21,38 @@ header {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    width: 85%;
-    height: 90px;
-    padding-left: 100px;
+    width: 100%;
+    height: 90px; 
 }
 
 header a:focus {
-    /* Provide an alternative for browsers
-    which do not support :focus-visible */
     outline: 2px solid #901C1C;
     background: #FAFAFA;
-    /* transform: scale(1.1); */
 }
 
 header a:focus:not(:focus-visible) {
-    /* Remove mouse focus indicator for 
-    browsers that support :focus-visible */
     background: transparent;
-    /* transform: scale(1.1); */
 }
 
 .logo {
-    height: 50px;
+    height: 50px;    
+    margin-left: 100px; 
 }
 
-header h1 {
+.title {
     margin-right: 100px;
     color: #901C1C;
 }
 
 main {
-    width: 85%;
-    padding-left: 100px;
+    width: 100%;
 }
 
 .photographer_section {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
     gap: 70px;
+    width: 100%;
     margin-top: 100px;
 }
 
@@ -74,18 +74,12 @@ main {
 }
 
 .photographer_section article a:focus {
-    /* Provide an alternative for browsers
-    which do not support :focus-visible */
     outline: 2px solid #901C1C;
     background: #FAFAFA;
-    /* transform: scale(1.1); */
 }
 
 .photographer_section article a:focus:not(:focus-visible) {
-    /* Remove mouse focus indicator for 
-    browsers that support :focus-visible */
     background: transparent;
-    /* transform: scale(1.1); */
 }
 
 .photographer_section article a img {
@@ -93,30 +87,29 @@ main {
     width: 200px;
     border-radius: 100px;
     object-fit: cover;
-    
 }
 
 .photographer_section article a h2 {
     margin: 0;
-    color: #D3573C;
     font-size: 2.25em;
     font-weight: 400;
+    color: #D3573C;
 }
 
 .photographer_section article h3 {
     margin: 0;
+    font-size: 1em;
     color: #D3573C;
-    font-size: 0.8em;
 }
 
 .photographer_section article span {
     margin: 0;
+    font-size: 0.8em;
     color: #000000;
-    font-size: 0.6em;
 }
 
 .photographer_section article p {
     margin: 0;
+    font-size: 0.8em;
     color: #646363;
-    font-size: O.55em;
 }

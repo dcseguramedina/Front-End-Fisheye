@@ -58,10 +58,8 @@ function displayGalley(mediasInfo) {
 
 function filterGallery() {
     const filter = document.getElementById("filter")
-    console.log(filter)
     
-    filter.addEventListener("change", (e) => {
-        console.log('hello from event')
+    filter.addEventListener("click", (e) => {
         e.preventDefault()
         sortMedias()   
     })
@@ -71,18 +69,15 @@ filterGallery()
 function sortMedias() {
     const option = filter.options[filter.selectedIndex].value;
     const gallery = document.querySelector(".photographer_gallery_medias");
-
-
-    //DEBUT
-    const items = gallery.childNodes;
-    console.log(items)
+    const items = gallery.childNodes;    
     const itemsList = [];
+
     for (let i in items) {
         if (items[i].nodeType == 1) { // get rid of the whitespace text nodes
             itemsList.push(items[i]);
         }
     }
-    console.log(itemsList)
+
     itemsList.sort(function(a, b) {
         switch(option) {
             case "title":
@@ -92,7 +87,7 @@ function sortMedias() {
                 return (b.getAttribute('data-date') < a.getAttribute('data-date')) ? -1 : 1;
     
             default:
-                return (parseInt(a.getAttribute('data-likes')) < parseInt(b.getAttribute('data-likes'))) ? -1 : 1;
+                return (parseInt(b.getAttribute('data-likes')) < parseInt(a.getAttribute('data-likes'))) ? -1 : 1;
         }
     });
 

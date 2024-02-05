@@ -99,6 +99,7 @@ export default class Photographer {
 
         //Create a "p" tag for each media likes
         const likes = document.createElement("p");
+        likes.className = "total_of_likes";
         likes.textContent = this.likes;
         //Attach the "p" tag to the media info
         likesInfo.appendChild(likes);      

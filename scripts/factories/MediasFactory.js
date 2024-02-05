@@ -72,12 +72,22 @@ class Medias {
         //Create a "p" tag for each media likes
         const mediaLikes = document.createElement("p");
         mediaLikes.textContent = this.likes;
+        //Attach the "p" tag to the media info
         mediaLikesInfo.appendChild(mediaLikes);
 
         const mediaLikesIcon = document.createElement("i");
         mediaLikesIcon.classList.add('fa-solid');
         mediaLikesIcon.classList.add('fa-heart');
         mediaLikesInfo.appendChild(mediaLikesIcon);
+
+        //  // Launch add likes event
+        mediaLikesIcon.addEventListener("click", (e) => {
+            e.preventDefault();
+            mediaLikes.textContent++;             
+            const totalOfLikes = document.querySelector(".total_of_likes");
+            totalOfLikes.textContent++;
+            e.target.removeEventListener('click', (e));                 
+        })
     } 
 
     displayLightbox() {   
