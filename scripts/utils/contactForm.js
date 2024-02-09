@@ -11,11 +11,20 @@ contactBtn.addEventListener("click", displayModal);
 // Display modal form
 function displayModal() {    
 	modalBg.style.display = "block";
+	const firstElement = document.getElementById("firstName");
+	firstElement.focus();
 }
 
 // Launch close modal event
 closeBtn.addEventListener("click", closeModal);
 close.addEventListener("click", closeModal);
+
+// Launch close modal event with escape key
+document.addEventListener('keydown', (event) => {
+	if (event.key === 'Escape') {
+	  closeModal();
+	}
+})
 
 // Close modal form
 function closeModal() {    

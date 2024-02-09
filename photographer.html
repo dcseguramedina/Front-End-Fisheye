@@ -21,7 +21,7 @@
     <main id="main" role="main">
       <header class="photographer_header" role="banner" aria-label="photographer info header">
         <span class="photographer_info" aria-label="photographer details"></span>
-        <button class="contact_button" name="contact me" type="button">Contactez-moi</button>
+        <button class="contact_button" name="contact me" type="button" role="button">Contactez-moi</button>
         <img class="photographer_portrait" src="" alt="">
       </header>
       <section class="photographer_gallery" aria-label="photographer gallery">
@@ -37,7 +37,7 @@
       </section>
     </main>
     
-    <div id="contact_modal">
+    <div id="contact_modal" aria-label="popup modal" role="dialog">
       <div class="modal_content">
         <header>
           <h2>Contactez-moi</h2>
@@ -88,12 +88,12 @@
             <label class="text_label" for="message">Votre message</label>
             <input
               id="message"
-              class="text_control message"
+              class="text_control"
               type="text"
               name="message"
             />  
           </div>                  
-          <button class="submit_button">Envoyer</button>
+          <button class="submit_button" name="submit" type="button"role="button">Envoyer</button>
         </form>
       </div>
     </div>

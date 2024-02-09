@@ -56,6 +56,24 @@ function displayGalley(mediasInfo) {
     }
 }
 
+function handleLikes() {
+    const numberOfLikes = document.querySelectorAll(".number_of_likes");
+    console.log(numberOfLikes)
+    const totalOfLikes = document.querySelector(".total_of_likes");
+    console.log(totalOfLikes)
+    const likesIcon = document.querySelectorAll(".likes_icon");
+    console.log(likesIcon)
+
+    // Launch add likes event
+    likesIcon.forEach((icon) => icon.addEventListener("click", (e) => {
+        e.preventDefault();
+        likesIcon.textContent++;
+        totalOfLikes.textContent++;
+        console.log(e.target);                
+    }))
+}
+handleLikes()
+
 function filterGallery() {
     const filter = document.getElementById("filter")
     

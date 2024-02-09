@@ -71,23 +71,16 @@ class Medias {
 
         //Create a "p" tag for each media likes
         const mediaLikes = document.createElement("p");
+        mediaLikes.className = "number_of_likes";
         mediaLikes.textContent = this.likes;
         //Attach the "p" tag to the media info
         mediaLikesInfo.appendChild(mediaLikes);
 
         const mediaLikesIcon = document.createElement("i");
+        mediaLikesIcon.className = "likes_icon";
         mediaLikesIcon.classList.add('fa-solid');
         mediaLikesIcon.classList.add('fa-heart');
         mediaLikesInfo.appendChild(mediaLikesIcon);
-
-        //  // Launch add likes event
-        mediaLikesIcon.addEventListener("click", (e) => {
-            e.preventDefault();
-            mediaLikes.textContent++;             
-            const totalOfLikes = document.querySelector(".total_of_likes");
-            totalOfLikes.textContent++;
-            e.target.removeEventListener('click', (e));                 
-        })
     } 
 
     displayLightbox() {   
@@ -95,7 +88,7 @@ class Medias {
         lightboxBg.style.display = "block";
 
         const lightboxSlide = document.querySelector(".lightbox_media")
-        lightboxSlide.appendChild(this.getLightboxSource())
+        lightboxSlide.appendChild(this.getLightboxSource());
 
          //Create a "h3" tag for each media title
          const imageTitle = document.createElement("h3"); 
@@ -111,21 +104,42 @@ class Medias {
             lightboxBg.style.display = "none";
         })
 
-         // Launch prev/next lightbox event
-         const showNext = document.getElementById("right")
-         showNext.addEventListener("click", (e) => {
-            console.log('right')
-             e.preventDefault()
-             this.navigateLightbox(1)
-         })
+        // Launch close lightbox event with escape key
+        document.addEventListener('keydown', (e) => {
+	        if (e.key === 'Escape') {
+	            lightboxSlide.innerHTML = ''
+                lightboxBg.style.display = "none";
+	        }
+        })
 
-          // Launch next lightbox event
-          const showPrevious = document.getElementById("left")
-          showPrevious.addEventListener("click", (e) => {
+        // Launch next lightbox event
+        const showNext = document.getElementById("right")
+        showNext.addEventListener("click", (e) => {
+            console.log('right')
+            e.preventDefault()
+            this.navigateLightbox(1)
+        })
+
+        // Launch prev lightbox event
+        const showPrevious = document.getElementById("left")
+        showPrevious.addEventListener("click", (e) => {
             console.log('left')
-              e.preventDefault()
-              this.navigateLightbox(-1)
-          })
+            e.preventDefault()
+            this.navigateLightbox(-1)
+        })
+
+        // Navigate through images with arrow keys
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') { 
+                // right arrow key
+                e.preventDefault()
+                this.navigateLightbox(1)    
+            } else if (e.key === 'ArrowLeft') {
+                // left arrow key 
+                e.preventDefault()
+                this.navigateLightbox(-1)    
+            }
+        })        
     }    
 
     async navigateLightbox(direction) {

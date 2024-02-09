@@ -112,7 +112,7 @@
 }
 
 .modal_content header h2 {
-    font-size: 64px;
+    font-size: 4em;
     font-weight: normal;
     text-align: center;
 }
@@ -154,8 +154,8 @@ form {
     border-color: #312E2E;
   }
 
-.message {
-    height: 136px;  
+#message {
+    height: 136px;
 }
 
 .photographer_gallery {
