@@ -16,7 +16,7 @@ export default class MediaFactory {
     }
 }
 
-let currentImageIndex = 0;
+let currentMediaIndex = 0;
 
 class Medias {
     
@@ -150,33 +150,58 @@ class Medias {
         };
         const photographerId = getPhotographerId()
         
-        const data = await getData()
-      
+        const data = await getData()      
 
         const medias = data.medias
         
         const mediasInfo = medias.filter((m) => m.photographerId === photographerId)
         console.log(mediasInfo)
-
     
         // Update the current index based on the navigation direction
-        let currentImage = mediasInfo[currentImageIndex += direction ];
-        console.log(currentImage)
+        let currentMedia = mediasInfo[currentMediaIndex += direction ];
+        console.log(currentMedia)
 
         // Wrap around to the first/last image if necessary
-        if (currentImageIndex < 0) {
-            currentImageIndex = mediasInfo.length - 1;
-        } else if (currentImageIndex >= mediasInfo.length) {
-            currentImageIndex = 0;
-        }    
+        if (currentMediaIndex < 0) {
+            currentMediaIndex = mediasInfo.length - 1;
+        } else if (currentMediaIndex >= mediasInfo.length) {
+            currentMediaIndex = 0;
+        }
 
+        this.updateLightbox(currentMedia)
+    }
+
+    updateLightbox(currentMedia) {
         // Set the image source and title based on the current image index
-        const slideSource = document.querySelector(".slide_source")
-        slideSource.src = currentImage.image ? `../../assets/medias/${currentImage.image}` : `../../assets/medias/${currentImage.video}`; 
-        slideSource.alt = currentImage.title;
+        
+        if (currentMedia.image) {
+            // Update the attributes of the original element
+            const slideSource = document.querySelector(".slide_source")
+            console.log(slideSource)
+            // Create a new element with a img tag name
+            const slideChangeToImage = document.createElement("img");
+
+            // Replace the original element with the new one
+            slideSource.parentNode.replaceChild(slideChangeToImage, slideSource);
+            slideChangeToImage.className = "slide_source";
+            slideChangeToImage.src = `../../assets/medias/${currentMedia.image}`;
+            slideChangeToImage.alt = currentMedia.title;
+        } else if (currentMedia.video) {
+            // Get the original element
+            const slideSource = document.querySelector(".slide_source")
+            console.log(slideSource)
+            // Create a new element with a video tag name
+            const slideChangeToVideo = document.createElement("video");
+
+            // Replace the original element with the new one
+            slideSource.parentNode.replaceChild(slideChangeToVideo, slideSource);
+            slideChangeToVideo.className = "slide_source";
+            slideChangeToVideo.src = `../../assets/medias/${currentMedia.video}`;
+            slideChangeToVideo.controls = true;            
+        }
 
         const slideTitle = document.querySelector(".slide_title");        
-        slideTitle.textContent = currentImage.title;
+        slideTitle.textContent = currentMedia.title;
     }
 }
 
