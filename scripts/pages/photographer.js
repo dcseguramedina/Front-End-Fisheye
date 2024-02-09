@@ -1,5 +1,5 @@
 import getData from "../services/data.services.js";
-import Photographer from "../models/Photographer.js"
+import Photographer from "../models/Photographer.js";
 import MediaFactory from "../factories/MediasFactory.js";
 
 let getPhotographerId = () => {
@@ -67,9 +67,9 @@ function handleLikes() {
     // Launch add likes event
     likesIcon.forEach((icon) => icon.addEventListener("click", (e) => {
         e.preventDefault();
-        likesIcon.textContent++;
-        totalOfLikes.textContent++;
-        console.log(e.target);                
+        e.target.previousSibling.textContent++;
+        totalOfLikes.textContent++;  
+        e.target.removeEventListener("click");              
     }))
 }
 handleLikes()
