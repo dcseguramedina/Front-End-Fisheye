@@ -5,6 +5,6 @@ export default async function getData() {
         return data
     }
     catch (error) {
-        alert(`Une erreur s'est produite. Veuillez réessayer`);
+        alert(`Une erreur s'est produite. Veuillez réessayer`)
     }
 }

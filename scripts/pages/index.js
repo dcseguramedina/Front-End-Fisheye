@@ -1,5 +1,5 @@
-import getData from "../services/data.services.js";
-import Photographer from "../models/Photographer.js";
+import getData from "../services/data.services.js"
+import Photographer from "../models/Photographer.js"
 
 let photographer = new Photographer()
 
