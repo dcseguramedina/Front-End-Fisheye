@@ -62,6 +62,7 @@ class Medias {
         // Create a "I" tag for the icon
         const mediaLikesIcon = document.createElement("i")
         mediaLikesIcon.className = "likes_icon"
+        mediaLikesIcon.setAttribute("data-liked", "unliked")
         mediaLikesIcon.classList.add('fa-solid')
         mediaLikesIcon.classList.add('fa-heart')
         mediaLikesInfo.appendChild(mediaLikesIcon)
@@ -224,7 +225,7 @@ class VideoMedia extends Medias {
     }
 }
 
-export default {
+export {
     ImageMedia,
     VideoMedia
 }

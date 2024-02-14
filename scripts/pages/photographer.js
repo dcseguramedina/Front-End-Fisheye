@@ -55,21 +55,9 @@ function displayGalley(mediasInfo) {
         )
         media.displayMedias()
     }
+    // Add filter par default - popularity
+    sortMedias()
 }
-
-function handleLikes() {
-    const totalOfLikes = document.querySelector(".total_of_likes")
-    const likesIcon = document.querySelectorAll(".likes_icon")
-
-    // Launch add likes event
-    likesIcon.forEach((icon) => icon.addEventListener("click", (e) => {
-        e.preventDefault()
-        e.target.previousSibling.textContent++
-        totalOfLikes.textContent++  
-        e.target.removeEventListener("click")              
-    }))
-}
-handleLikes()
 
 function filterGallery() {
     const filter = document.getElementById("filter")
@@ -110,3 +98,19 @@ function sortMedias() {
         gallery.appendChild(itemsList[i])
     }
 }
+
+function handleLikes() {
+    const totalOfLikes = document.querySelector(".total_of_likes")
+    const likesIcon = document.querySelectorAll(".likes_icon")
+
+    // Launch add likes event
+    likesIcon.forEach((icon) => icon.addEventListener("click", (e) => {
+        e.preventDefault()
+        if (e.target.getAttribute('data-liked') === "unliked") {
+            e.target.previousSibling.textContent++
+            totalOfLikes.textContent++
+            e.target.setAttribute("data-liked", "liked")
+        }          
+    }))
+}
+handleLikes()
