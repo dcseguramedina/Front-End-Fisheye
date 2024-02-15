@@ -12,23 +12,24 @@ export default class Photographer {
     }
 
     displayCardInfo() {
-        const photographersSection = document.querySelector(".photographer_section")    
+        const photographersSection = document.querySelector(".photographers_section")    
         
         //Create an "article" tag dedicated to a photographe
         const photographeArticle = document.createElement("article")
-        photographeArticle.ariaLabel = 'photographer details'
+        photographeArticle.className = "photographer_details"
+        photographeArticle.setAttribute('aria-label', 'Détails du photographe')
         photographersSection.appendChild(photographeArticle)
 
         //Create an "a" tag to make the link to a photographe
         const photoprapherLink = document.createElement("a")
         photoprapherLink.href = `./photographer.html?id=${this.id}`
-        photoprapherLink.ariaLabel = `image link to photographer's page`
+        photoprapherLink.setAttribute('aria-label', `Image avec lien vers la page du photographe`)
         photographeArticle.appendChild(photoprapherLink)
 
         //Create an "img" tag for each photographe
         const photographeImage = document.createElement("img")
         photographeImage.src = `../../assets/photographers/${this.portrait}`
-        photographeImage.alt = 'portrait du photographer ' + this.name
+        photographeImage.alt = 'Portrait du photographe' + this.name   
         photoprapherLink.appendChild(photographeImage)
 
         //Create a "h2" tag for each photographe
@@ -73,7 +74,7 @@ export default class Photographer {
         // Set the image attributs
         const photographeImage = document.querySelector(".photographer_portrait")        
         photographeImage.src = `../../assets/photographers/${this.portrait}`
-        photographeImage.alt = 'portrait du photographer ' + this.name
+        photographeImage.alt = 'Portrait du photographe ' + this.name
     }
 
     displayAside() {

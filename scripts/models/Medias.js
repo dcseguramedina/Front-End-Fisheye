@@ -19,17 +19,17 @@ class Medias {
         // Create an "article" tag dedicated to a media
         const mediaArticle = document.createElement("article")
         mediaArticle.className = "gallery_image"
-        mediaArticle.ariaLabel = 'gallery image'
-        mediaArticle.setAttribute("data-title", this.title)
-        mediaArticle.setAttribute("data-date", this.date)
-        mediaArticle.setAttribute("data-likes", this.likes)
+        mediaArticle.setAttribute('aria-label', `Galerie d'images du photographe`)
+        mediaArticle.setAttribute('data-title', this.title)
+        mediaArticle.setAttribute('data-date', this.date)
+        mediaArticle.setAttribute('data-likes', this.likes)
         gallerySection.appendChild(mediaArticle)
 
         // Create an "a" tag to make the link to a media
         const mediaLink = document.createElement("a")
         mediaLink.className = "media_link"
         mediaLink.href = ``
-        mediaLink.ariaLabel = 'image link to media'
+        mediaLink.setAttribute('aria-label', `Lien vers l'image du photographe`)
         mediaArticle.appendChild(mediaLink)
 
         mediaLink.appendChild(this.getSource())
@@ -38,6 +38,8 @@ class Medias {
         mediaLink.addEventListener("click", (e) => {
             e.preventDefault()
             this.displayLightbox()
+            const lightboxBg = document.getElementById("lightbox_modal")
+            lightboxBg.focus()
         })
 
         // Create a "span" tag for each media info
@@ -62,7 +64,7 @@ class Medias {
         // Create a "I" tag for the icon
         const mediaLikesIcon = document.createElement("i")
         mediaLikesIcon.className = "likes_icon"
-        mediaLikesIcon.setAttribute("data-liked", "unliked")
+        mediaLikesIcon.setAttribute('data-liked', 'unliked')
         mediaLikesIcon.classList.add('fa-solid')
         mediaLikesIcon.classList.add('fa-heart')
         mediaLikesInfo.appendChild(mediaLikesIcon)

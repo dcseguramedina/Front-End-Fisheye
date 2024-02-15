@@ -1,6 +1,6 @@
 .photographer_header {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1.5fr repeat(2, 1fr);
     gap: 50px;
     width: 93%;
     justify-self: center;
@@ -12,6 +12,7 @@
 .photographer_info {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     height: 200px;    
     margin-left: 50px;
 }
@@ -21,11 +22,13 @@
     padding: 0;
     font-size: 4em;
     font-weight: 400;
+    line-height: 1;
     color: #D3573C;
 }
 
 .photographer_info h2  {
     margin: 0;
+    margin-top: 15px;
     padding: 0;
     font-size: 1.5em;
     font-weight: 400;
@@ -53,10 +56,6 @@
     cursor: pointer;
 }
 
-.contact_button {
-    margin-left: 120px;
-}
-
 .contact_button:hover {
     background-color: #D3573C;
     color: black;
@@ -76,7 +75,7 @@
 .photographer_portrait {
     height: 200px;
     width: 200px;
-    margin-left: 150px;
+    margin-left: 100px;
     border-radius: 100px;
     object-fit: cover;
 }
@@ -151,11 +150,16 @@ form {
 }
 
 .text_control:focus {
-    border-color: #312E2E;
-  }
+    outline: 4px solid #901C1C;
+}
+
+.errorMsg {
+    font-size: 1.2em;
+}
 
 #message {
     height: 136px;
+    font-family: sans-serif;
 }
 
 .photographer_gallery {
@@ -190,8 +194,8 @@ form {
 
 .filter_option {
     width: 200px;
-    height: 50px;
     padding: 0 30px;
+    border-bottom: #FFFFFF;
     background-color: #901C1C;
     font-size: 1.2em;
     font-weight: 700;
@@ -216,6 +220,15 @@ form {
 }
 .media_link {
 	text-decoration: none;
+}
+
+.media_link:focus {
+    outline: 4px solid #901C1C;
+    background: #FAFAFA;
+}
+
+.media_link:focus:not(:focus-visible) {
+    background: transparent;
 }
 
 .media_source {
@@ -290,7 +303,6 @@ form {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 3%;
 }
 
 #right, #left {
@@ -300,7 +312,7 @@ form {
 #close_lightbox {
     position: absolute;
     top: 8%;
-    right: 3%;
+    right: 1%;
     cursor: pointer;
 }
 

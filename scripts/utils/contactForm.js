@@ -54,7 +54,7 @@ class Field {
 	checkField() {
 	  let valid = this.regex.test(this.docName.value)
 	  if (valid === false) {
-		this.docName.style.border = "2px outset red"
+		this.docName.style.border = "4px dashed #901C1C"
 		this.docErrorMsg.textContent = this.errorMsg
 		return false
 	  } else {
