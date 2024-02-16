@@ -1,6 +1,6 @@
-import getData from "../services/data.services.js"
-import Photographer from "../models/Photographer.js"
-import MediaFactory from "../factories/MediasFactory.js"
+import getData from "../../scripts/services/data.services.js"
+import Photographer from "../../scripts/models/Photographer.js"
+import MediaFactory from "../../scripts/factories/MediasFactory.js"
 
 let getPhotographerId = () => {
     return parseInt(new URL(window.location.href).searchParams.get("id"), 10)
@@ -15,7 +15,6 @@ displayPhotographerPage(data)
 function displayPhotographerPage(data) {    
     const photographers = data.photographers    
     const photographerInfo = photographers.find((p) => p.id === photographerId)
-
     const medias = data.medias
     const mediasInfo = medias.filter((m) => m.photographerId === photographerId)
     const mediasLikes = mediasInfo.map((l) => l.likes)
@@ -47,7 +46,7 @@ function displayGalley(mediasInfo) {
             info.id,
             info.photographerId,
             info.title,
-            info.image ? `../../assets/medias/${info.image}` : `../../assets/medias/${info.video}`,
+            info.image ? `../../src/assets/medias/${info.image}` : `../../src/assets/medias/${info.video}`,
             info.likes,
             info.date,
             info.price,
@@ -61,17 +60,26 @@ function displayGalley(mediasInfo) {
 
 function filterGallery() {
     const filter = document.getElementById("filter")
-    
+
+    // Launch filter event
     filter.addEventListener("click", (e) => {
         e.preventDefault()
         sortMedias()   
     })
+
+    // Launch filter event with enter key
+    // filter.addEventListener('keydown', (e) => {
+    //     e.preventDefault()
+    //     if (e.key === 'Enter') {
+    //         sortMedias() 
+    //     }                 
+    // })
 }
 filterGallery()
 
 function sortMedias() {
-    const option = filter.options[filter.selectedIndex].value
-    const gallery = document.querySelector(".photographer_gallery_medias")
+    const option = filter.options[filter.selectedIndex].value  
+    const gallery = document.querySelector(".photographer_gallery_medias")  
     const items = gallery.childNodes    
     const itemsList = []
 
@@ -99,18 +107,28 @@ function sortMedias() {
     }
 }
 
-function handleLikes() {
-    const totalOfLikes = document.querySelector(".total_of_likes")
-    const likesIcon = document.querySelectorAll(".likes_icon")
+// HANDLE LIKES //
+const totalOfLikes = document.querySelector(".total_of_likes")
+const likesIcon = document.querySelectorAll(".likes_icon")
 
-    // Launch add likes event
-    likesIcon.forEach((icon) => icon.addEventListener("click", (e) => {
-        e.preventDefault()
-        if (e.target.getAttribute('data-liked') === "unliked") {
-            e.target.previousSibling.textContent++
-            totalOfLikes.textContent++
-            e.target.setAttribute("data-liked", "liked")
-        }          
-    }))
+// Launch add likes event
+likesIcon.forEach((icon) => icon.addEventListener("click", (e) => {
+    e.preventDefault()
+    addLike(e)          
+}))
+
+// Launch add likes event with enter key
+// likesIcon.forEach((icon) => icon.addEventListener('keydown', (e) => {
+//     e.preventDefault()
+//     if (e.key === 'Enter') {
+//         addLike(e)
+//     }                 
+// }))
+
+function addLike(e) {
+    if (e.target.getAttribute('data-liked') === "unliked") {
+        e.target.previousSibling.textContent++
+        totalOfLikes.textContent++
+        e.target.setAttribute("data-liked", "liked")
+    }
 }
-handleLikes()

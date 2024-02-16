@@ -1,4 +1,4 @@
-import getData from "../services/data.services.js"
+import getData from "../../scripts/services/data.services.js"
 
 let currentMediaIndex = 0
 
@@ -64,9 +64,10 @@ class Medias {
         // Create a "I" tag for the icon
         const mediaLikesIcon = document.createElement("i")
         mediaLikesIcon.className = "likes_icon"
-        mediaLikesIcon.setAttribute('data-liked', 'unliked')
         mediaLikesIcon.classList.add('fa-solid')
         mediaLikesIcon.classList.add('fa-heart')
+        mediaLikesIcon.setAttribute('data-liked', 'unliked')
+        mediaLikesIcon.setAttribute('tabindex', '0')
         mediaLikesInfo.appendChild(mediaLikesIcon)
     } 
 
@@ -160,7 +161,7 @@ class Medias {
             // Replace the original element with the new one
             slideSource.parentNode.replaceChild(slideChangeToImage, slideSource)
             slideChangeToImage.className = "slide_source"
-            slideChangeToImage.src = `../../assets/medias/${currentMedia.image}`
+            slideChangeToImage.src = `../../src/assets/medias/${currentMedia.image}`
             slideChangeToImage.alt = currentMedia.title
         } else if (currentMedia.video) {
             // Get the original element
@@ -170,7 +171,7 @@ class Medias {
             // Replace the original element with the new one
             slideSource.parentNode.replaceChild(slideChangeToVideo, slideSource)
             slideChangeToVideo.className = "slide_source"
-            slideChangeToVideo.src = `../../assets/medias/${currentMedia.video}`
+            slideChangeToVideo.src = `../../src/assets/medias/${currentMedia.video}`
             slideChangeToVideo.controls = true            
         }
         

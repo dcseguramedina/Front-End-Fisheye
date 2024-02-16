@@ -274,6 +274,14 @@ form {
     cursor: pointer;
 }
 
+.gallery_image span div i:focus {
+    transform: scale(1.5);
+}
+
+.gallery_image span div i:focus:not(:focus-visible) {
+    background: transparent;
+}
+
 #lightbox_modal {
     display: none;
     position: fixed;

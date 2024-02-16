@@ -1,4 +1,3 @@
-
 // DOM Elements (modal)
 const contactBtn = document.querySelector(".contact_button")
 const modalBg = document.getElementById("contact_modal")

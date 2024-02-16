@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Travail des photographes">
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <link href="assets/favicon.png" rel="icon" type="image/png"  />
+    <link href="src/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="src/assets/favicon.png" rel="icon" type="image/png"  />
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet" />
     <script src="https://kit.fontawesome.com/991beb3e09.js" crossorigin="anonymous"></script>
     <title>Fisheye - photographer </title>
@@ -14,7 +14,7 @@
   <body>
     <header aria-label="En-tête de la page d'accueil">
       <a href="./index.html" aria-label="Image avec lien vers la page d'accueil Fisheye">
-        <img class="logo" src="assets/images/logo.png" alt="Fisheye logo"/>
+        <img class="logo" src="src/assets/images/logo.png" alt="Fisheye logo"/>
       </a>
     </header>
 
@@ -42,12 +42,12 @@
       <div class="modal_content">
         <header>
           <h2>Contactez-moi</h2>
-          <img class="close_button" src="assets/icons/close-white.svg" alt="Icône de fermeture" role="button"/>
+          <img class="close_button" src="src/assets/icons/close-white.svg" alt="Icône de fermeture" role="button"/>
         </header>
         <form
           id="submitBtn"
           name="contact"
-          action="photographer.html"
+          action="./photographer.html"
           method="get"
         >          
           <div class="form_data">
@@ -55,7 +55,7 @@
             <input
               id="firstName"
               class="text_control"
-              type="text"              
+              type="text"            
               name="firstName"
               minlength="2"
               required
@@ -100,21 +100,21 @@
     <div id="lightbox_modal" aria-label="Vue rapprochée de l'image">      
       <div class="lightbox_content">
         <div class="lightbox_side">
-          <img id="close_lightbox" src="assets/icons/close-red.png" alt="Fermer la boîte de dialogue" role="button"/>
-          <img id="right" src="assets/icons/expand_more_right.png" alt="Image suivant" role="button"/>          
+          <img id="close_lightbox" src="src/assets/icons/close-red.png" alt="Fermer la boîte de dialogue" role="button"/>
+          <img id="right" src="src/assets/icons/expand_more_right.png" alt="Image suivant" role="button"/>          
         </div>
         <div class="lightbox_media"></div>
         <div class="lightbox_side">
-          <img id="left" src="assets/icons/expand_more_left.png" alt="Image précédente" role="button"/>
+          <img id="left" src="src/assets/icons/expand_more_left.png" alt="Image précédente" role="button"/>
         </div>                 
       </div>
     </div>
 		
-    <script type="module" src="scripts/services/data.services.js"></script>
-    <script type="module" src="scripts/models/Photographer.js"></script>
-    <script type="module" src="scripts/models/Medias.js"></script>
-    <script type="module" src="scripts/factories/MediasFactory.js"></script>
-    <script type="module" src="/scripts/pages/photographer.js"></script>
-    <script type="module" src="/scripts/utils/contactForm.js"></script>
+    <script type="module" src="src/scripts/services/data.services.js"></script>
+    <script type="module" src="src/scripts/models/Photographer.js"></script>
+    <script type="module" src="src/scripts/models/Medias.js"></script>
+    <script type="module" src="src/scripts/factories/MediasFactory.js"></script>
+    <script type="module" src="src//scripts/pages/photographer.js"></script>
+    <script type="module" src="src//scripts/utils/contactForm.js"></script>
   </body>
 </html>

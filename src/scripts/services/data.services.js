@@ -1,7 +1,8 @@
 export default async function getData() {
     try {
-        const response = await fetch('../../data/photographers.json')
+        const response = await fetch('../src/data/photographers.json')
         const data = await response.json()
+        console.log(data)
         return data
     }
     catch (error) {

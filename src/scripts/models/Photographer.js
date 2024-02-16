@@ -28,7 +28,7 @@ export default class Photographer {
 
         //Create an "img" tag for each photographe
         const photographeImage = document.createElement("img")
-        photographeImage.src = `../../assets/photographers/${this.portrait}`
+        photographeImage.src = `../../src/assets/photographers/${this.portrait}`
         photographeImage.alt = 'Portrait du photographe' + this.name   
         photoprapherLink.appendChild(photographeImage)
 
@@ -73,7 +73,7 @@ export default class Photographer {
 
         // Set the image attributs
         const photographeImage = document.querySelector(".photographer_portrait")        
-        photographeImage.src = `../../assets/photographers/${this.portrait}`
+        photographeImage.src = `../../src/assets/photographers/${this.portrait}`
         photographeImage.alt = 'Portrait du photographe ' + this.name
     }
 
