@@ -1,5 +1,4 @@
-import getData from "../../scripts/services/data.services.js"
-
+// Index to handle lightbox
 let currentMediaIndex = 0
 
 class Medias {    
@@ -20,9 +19,10 @@ class Medias {
         const mediaArticle = document.createElement("article")
         mediaArticle.className = "gallery_image"
         mediaArticle.setAttribute('aria-label', `Galerie d'images du photographe`)
-        mediaArticle.setAttribute('data-title', this.title)
         mediaArticle.setAttribute('data-date', this.date)
         mediaArticle.setAttribute('data-likes', this.likes)
+        mediaArticle.setAttribute('data-source', this.source)
+        mediaArticle.setAttribute('data-title', this.title)
         gallerySection.appendChild(mediaArticle)
 
         // Create an "a" tag to make the link to a media
@@ -38,8 +38,6 @@ class Medias {
         mediaLink.addEventListener("click", (e) => {
             e.preventDefault()
             this.displayLightbox()
-            const lightboxBg = document.getElementById("lightbox_modal")
-            lightboxBg.focus()
         })
 
         // Create a "span" tag for each media info
@@ -74,7 +72,6 @@ class Medias {
     displayLightbox() {   
         const lightboxBg = document.getElementById("lightbox_modal") 
         lightboxBg.style.display = "block"
-
         const lightboxSlide = document.querySelector(".lightbox_media")
         lightboxSlide.appendChild(this.getLightboxSource())
 
@@ -84,6 +81,7 @@ class Medias {
         imageTitle.textContent = this.title
         lightboxSlide.appendChild(imageTitle)
 
+        // START OF LIGHTBOX CONTROLS //
         // Launch close lightbox event
         const close = document.getElementById("close_lightbox")
         close.addEventListener("click", (e) => {
@@ -125,58 +123,63 @@ class Medias {
                 e.preventDefault()
                 this.navigateLightbox(-1)    
             }
-        })        
+        })
+        // END OF LIGHTBOX CONTROLS //       
     }    
 
-    async navigateLightbox(direction) {
-        // Get the medias info for the photographe
-        let getPhotographerId = () => {
-            return parseInt(new URL(window.location.href).searchParams.get("id"), 10)
+    navigateLightbox(direction) {
+        // Get the list of medias from the DOM
+        const galleryMedias = document.querySelector(".photographer_gallery_medias")
+        const items = galleryMedias.childNodes    
+        const itemsList = []
+
+        for (let i in items) {
+            if (items[i].nodeType == 1) { // get rid of the whitespace text nodes
+                itemsList.push(items[i])
+            }
         }
-        const photographerId = getPhotographerId()        
-        const data = await getData()
-        const medias = data.medias        
-        const mediasInfo = medias.filter((m) => m.photographerId === photographerId)
     
         // Update the current index based on the navigation direction
-        let currentMedia = mediasInfo[currentMediaIndex += direction ]
+        let currentMedia = itemsList[currentMediaIndex += direction ]
 
         // Wrap around to the first/last image if necessary
         if (currentMediaIndex < 0) {
-            currentMediaIndex = mediasInfo.length - 1
-        } else if (currentMediaIndex >= mediasInfo.length) {
+            currentMediaIndex = itemsList.length - 1
+        } else if (currentMediaIndex >= itemsList.length) {
             currentMediaIndex = 0
         }
-
         this.updateLightbox(currentMedia)
     }
 
     updateLightbox(currentMedia) {
+        let source = currentMedia.getAttribute('data-source')
+        console.log(source)
+        let title = currentMedia.getAttribute('data-title')
+        console.log(title)
         // Set the image source and title based on the current image index        
-        if (currentMedia.image) {
-            // Update the attributes of the original element
+        if (currentMedia) {
+            // Get the original element
             const slideSource = document.querySelector(".slide_source")
             // Create a new element with a img tag name
             const slideChangeToImage = document.createElement("img")
             // Replace the original element with the new one
             slideSource.parentNode.replaceChild(slideChangeToImage, slideSource)
             slideChangeToImage.className = "slide_source"
-            slideChangeToImage.src = `../../src/assets/medias/${currentMedia.image}`
-            slideChangeToImage.alt = currentMedia.title
-        } else if (currentMedia.video) {
-            // Get the original element
-            const slideSource = document.querySelector(".slide_source")
-            // Create a new element with a video tag name
-            const slideChangeToVideo = document.createElement("video")
-            // Replace the original element with the new one
-            slideSource.parentNode.replaceChild(slideChangeToVideo, slideSource)
-            slideChangeToVideo.className = "slide_source"
-            slideChangeToVideo.src = `../../src/assets/medias/${currentMedia.video}`
-            slideChangeToVideo.controls = true            
-        }
-        
+            slideChangeToImage.src = source
+            slideChangeToImage.alt = title
+        // } else if (currentMedia.video) {
+        //     // Get the original element
+        //     const slideSource = document.querySelector(".slide_source")
+        //     // Create a new element with a video tag name
+        //     const slideChangeToVideo = document.createElement("video")
+        //     // Replace the original element with the new one
+        //     slideSource.parentNode.replaceChild(slideChangeToVideo, slideSource)
+        //     slideChangeToVideo.className = "slide_source"
+        //     slideChangeToVideo.src = source
+        //     slideChangeToVideo.controls = true            
+        }        
         const slideTitle = document.querySelector(".slide_title")       
-        slideTitle.textContent = currentMedia.title
+        slideTitle.textContent = title
     }
 }
 

@@ -1,13 +1,9 @@
-// DOM Elements (modal)
+// Launch open modal event
 const contactBtn = document.querySelector(".contact_button")
 const modalBg = document.getElementById("contact_modal")
-const closeBtn = document.querySelector(".close_button")
-const close = document.querySelector(".submit_button")
 
-// Launch open modal event
 contactBtn.addEventListener("click", displayModal)
 
-// Display modal form
 function displayModal() {    
 	modalBg.style.display = "block"
 	const firstElement = document.getElementById("firstName")
@@ -15,6 +11,9 @@ function displayModal() {
 }
 
 // Launch close modal event
+const closeBtn = document.querySelector(".close_button")
+const close = document.querySelector(".submit_button")
+
 closeBtn.addEventListener("click", closeModal)
 close.addEventListener("click", closeModal)
 
@@ -25,23 +24,19 @@ document.addEventListener('keydown', (event) => {
 	}
 })
 
-// Close modal form
 function closeModal() {    
 	modalBg.style.display = "none"
 }
 
-// Implement form inputs
-// Create field class in order to simplify field's validation
+// IMPLEMENT FORM ONPUTS //
 class Field {
-	// Define details
 	constructor(docName, regex, docErrorMsg, errorMsg) {
 	  this.docName = docName
 	  this.regex = regex
 	  this.docErrorMsg = docErrorMsg
 	  this.errorMsg = errorMsg
 	}
-	// Define methods
-	// Add an event to listen to the changes and check the inputs 
+	// Add an event to check the inputs 
 	addEvent() {
 	  this.docName.addEventListener("focusout", (event) => {
 		event.preventDefault()
@@ -97,11 +92,9 @@ message.addEventListener("focusout", (event) => {
 	console.log(message.value)
 })
 
-// Implement submit btn  
-// Recover the DOM element for the "submitBtn"
+// Implement submit btn
 const submitBtn = document.getElementById("submitBtn")
 
-// // Listen to the click and check the inputs
 submitBtn.addEventListener("submit", (event) => {
   	event.preventDefault() 
 	document.forms[0].reset()

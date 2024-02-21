@@ -54,7 +54,7 @@ function displayGalley(mediasInfo) {
         )
         media.displayMedias()
     }
-    // Add filter par default - popularity
+    // Add default filter - popularity
     sortMedias()
 }
 
@@ -79,6 +79,7 @@ filterGallery()
 
 function sortMedias() {
     const option = filter.options[filter.selectedIndex].value  
+    // Get the list of medias from the DOM
     const gallery = document.querySelector(".photographer_gallery_medias")  
     const items = gallery.childNodes    
     const itemsList = []
