@@ -23,6 +23,7 @@ class Medias {
         mediaArticle.setAttribute('data-likes', this.likes)
         mediaArticle.setAttribute('data-source', this.source)
         mediaArticle.setAttribute('data-title', this.title)
+        mediaArticle.setAttribute('data-is-img', this instanceof ImageMedia);
         gallerySection.appendChild(mediaArticle)
 
         // Create an "a" tag to make the link to a media
@@ -38,6 +39,9 @@ class Medias {
         mediaLink.addEventListener("click", (e) => {
             e.preventDefault()
             this.displayLightbox()
+            const firstElement = document.querySelector(".lightbox_media")
+	        firstElement.focus()
+
         })
 
         // Create a "span" tag for each media info
@@ -138,6 +142,8 @@ class Medias {
                 itemsList.push(items[i])
             }
         }
+
+        console.log(itemsList)
     
         // Update the current index based on the navigation direction
         let currentMedia = itemsList[currentMediaIndex += direction ]
@@ -156,8 +162,11 @@ class Medias {
         console.log(source)
         let title = currentMedia.getAttribute('data-title')
         console.log(title)
+        let isImage = currentMedia.getAttribute('data-is-img')
+        console.log(isImage)
+
         // Set the image source and title based on the current image index        
-        if (currentMedia) {
+        if (isImage === 'true') {
             // Get the original element
             const slideSource = document.querySelector(".slide_source")
             // Create a new element with a img tag name
@@ -167,16 +176,16 @@ class Medias {
             slideChangeToImage.className = "slide_source"
             slideChangeToImage.src = source
             slideChangeToImage.alt = title
-        // } else if (currentMedia.video) {
-        //     // Get the original element
-        //     const slideSource = document.querySelector(".slide_source")
-        //     // Create a new element with a video tag name
-        //     const slideChangeToVideo = document.createElement("video")
-        //     // Replace the original element with the new one
-        //     slideSource.parentNode.replaceChild(slideChangeToVideo, slideSource)
-        //     slideChangeToVideo.className = "slide_source"
-        //     slideChangeToVideo.src = source
-        //     slideChangeToVideo.controls = true            
+        } else {
+            // Get the original element
+            const slideSource = document.querySelector(".slide_source")
+            // Create a new element with a video tag name
+            const slideChangeToVideo = document.createElement("video")
+            // Replace the original element with the new one
+            slideSource.parentNode.replaceChild(slideChangeToVideo, slideSource)
+            slideChangeToVideo.className = "slide_source"
+            slideChangeToVideo.src = source
+            slideChangeToVideo.controls = true            
         }        
         const slideTitle = document.querySelector(".slide_title")       
         slideTitle.textContent = title

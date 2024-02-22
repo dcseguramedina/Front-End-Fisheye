@@ -119,12 +119,11 @@ likesIcon.forEach((icon) => icon.addEventListener("click", (e) => {
 }))
 
 // Launch add likes event with enter key
-// likesIcon.forEach((icon) => icon.addEventListener('keydown', (e) => {
-//     e.preventDefault()
-//     if (e.key === 'Enter') {
-//         addLike(e)
-//     }                 
-// }))
+likesIcon.forEach((icon) => icon.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+        addLike(e)
+    }                 
+}))
 
 function addLike(e) {
     if (e.target.getAttribute('data-liked') === "unliked") {

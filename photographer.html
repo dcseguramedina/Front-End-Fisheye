@@ -21,7 +21,7 @@
     <main id="main">
       <header class="photographer_header" aria-label="En-tête des informations sur le photographe">
         <span class="photographer_info" aria-label="Détails du photographe"></span>
-        <button class="contact_button" name="Contactez-moi" type="button">Contactez-moi</button>
+        <button id="contact_button" name="Contactez-moi" type="button">Contactez-moi</button>
         <img class="photographer_portrait" src="" alt="">
       </header>
       
@@ -42,10 +42,12 @@
       <div class="modal_content">
         <header>
           <h2>Contactez-moi</h2>
-          <img class="close_button" src="src/assets/icons/close-white.svg" alt="Icône de fermeture" role="button"/>
+          <button id="close_button">
+            <img src="src/assets/icons/close-white.svg" alt="Icône de fermeture"/>
+          </button>
         </header>
         <form
-          id="submitBtn"
+          id="submit"
           name="contact"
           action="./photographer.html"
           method="get"
@@ -92,7 +94,7 @@
               class="text_control"
             ></textarea>
           </div>                  
-          <button class="submit_button" name="submit" type="submit">Envoyer</button>
+          <button id="submit_button" name="submit" type="submit">Envoyer</button>
         </form>
       </div>
     </div>
@@ -100,12 +102,18 @@
     <div id="lightbox_modal" aria-label="Vue rapprochée de l'image">      
       <div class="lightbox_content">
         <div class="lightbox_side">
-          <img id="close_lightbox" src="src/assets/icons/close-red.png" alt="Fermer la boîte de dialogue" role="button"/>
-          <img id="right" src="src/assets/icons/expand_more_right.png" alt="Image suivant" role="button"/>          
+          <button id="close_lightbox" >
+            <img src="src/assets/icons/close-red.png" alt="Fermer la boîte de dialogue"/>
+          </button>
+          <button id="right">
+            <img src="src/assets/icons/expand_more_right.png" alt="Image suivant"/>
+          </button>     
         </div>
-        <div class="lightbox_media"></div>
+        <a class="lightbox_media" href="#"></a>
         <div class="lightbox_side">
-          <img id="left" src="src/assets/icons/expand_more_left.png" alt="Image précédente" role="button"/>
+          <button id="left">
+            <img src="src/assets/icons/expand_more_left.png" alt="Image précédente"/>
+          </button>
         </div>                 
       </div>
     </div>

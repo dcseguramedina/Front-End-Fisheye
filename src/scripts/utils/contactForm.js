@@ -1,5 +1,5 @@
 // Launch open modal event
-const contactBtn = document.querySelector(".contact_button")
+const contactBtn = document.getElementById("contact_button")
 const modalBg = document.getElementById("contact_modal")
 
 contactBtn.addEventListener("click", displayModal)
@@ -11,11 +11,11 @@ function displayModal() {
 }
 
 // Launch close modal event
-const closeBtn = document.querySelector(".close_button")
-const close = document.querySelector(".submit_button")
+const closeBtn = document.getElementById("close_button")
+const submitBtn = document.getElementById("submit_button")
 
 closeBtn.addEventListener("click", closeModal)
-close.addEventListener("click", closeModal)
+submitBtn.addEventListener("click", closeModal)
 
 // Launch close modal event with escape key
 document.addEventListener('keydown', (event) => {
@@ -93,9 +93,9 @@ message.addEventListener("focusout", (event) => {
 })
 
 // Implement submit btn
-const submitBtn = document.getElementById("submitBtn")
+const submit = document.getElementById("submit")
 
-submitBtn.addEventListener("submit", (event) => {
+submit.addEventListener("submit", (event) => {
   	event.preventDefault() 
 	document.forms[0].reset()
 })

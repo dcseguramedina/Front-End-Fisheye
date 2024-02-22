@@ -30,10 +30,6 @@ header a:focus {
     background: #FAFAFA;
 }
 
-header a:focus:not(:focus-visible) {
-    background: transparent;
-}
-
 .logo {
     height: 50px;    
     margin-left: 100px; 
@@ -76,10 +72,6 @@ main {
 .photographer_details a:focus {
     outline: 4px solid #901C1C;
     background: #FAFAFA;
-}
-
-.photographer_details a:focus:not(:focus-visible) {
-    background: transparent;
 }
 
 .photographer_details a img {

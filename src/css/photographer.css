@@ -42,8 +42,8 @@
     color: #525252;
 }
 
-.contact_button, 
-.submit_button {
+#contact_button, 
+#submit_button {
     width: 170px;
     height: 70px;
     padding: 11px;  
@@ -56,18 +56,8 @@
     cursor: pointer;
 }
 
-.contact_button:hover {
-    background-color: #D3573C;
-    color: black;
-}
-
-.contact_button:focus {
+#contact_button:hover, #contact_button:focus {
     outline: 4px solid #D3573C;
-    background-color: #D3573C;
-    color: black;
-}
-
-.contact_button:focus:not(:focus-visible) {
     background-color: #D3573C;
     color: black;
 }
@@ -116,8 +106,14 @@
     text-align: center;
 }
 
-.close_button{
+#close_button{
+    background-color: transparent;
+    border: none;
     cursor: pointer;
+}
+
+#close_button:focus {
+    outline: 4px solid #901C1C;
 }
 
 form {
@@ -218,17 +214,13 @@ form {
     align-items: center;	
 	border-radius: 10px;
 }
+
 .media_link {
 	text-decoration: none;
 }
 
 .media_link:focus {
     outline: 4px solid #901C1C;
-    background: #FAFAFA;
-}
-
-.media_link:focus:not(:focus-visible) {
-    background: transparent;
 }
 
 .media_source {
@@ -265,7 +257,7 @@ form {
 }
 
 .gallery_image span div i {
-    width: 21px;
+    width: 23px;
     height: 24px;
     margin-left: 5px;
     align-self: center;
@@ -275,11 +267,7 @@ form {
 }
 
 .gallery_image span div i:focus {
-    transform: scale(1.5);
-}
-
-.gallery_image span div i:focus:not(:focus-visible) {
-    background: transparent;
+    outline: 2px solid #901C1C;
 }
 
 #lightbox_modal {
@@ -314,6 +302,8 @@ form {
 }
 
 #right, #left {
+    background-color: transparent;
+    border: none;
     cursor: pointer;
 }
 
@@ -321,28 +311,41 @@ form {
     position: absolute;
     top: 8%;
     right: 1%;
+    background-color: transparent;
+    border: none;
     cursor: pointer;
+}
+
+#right:focus, #left:focus, #close_lightbox:focus {
+    outline: 4px solid #901C1C;
 }
 
 .lightbox_media {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    width: 80%;
+    justify-content: space-around;
+    width: 85%;
     height: 90%;
-    margin: 10px;
+    text-decoration: none;
+}
+
+.lightbox_media:focus {
+    outline: 4px solid #901C1C;
 }
 
 .slide_source {
-	width: 100%;
+	width: 95%;
     height: 95%;
-    margin: 10px;
+    align-self: center;
 	object-fit:cover;
 	border-radius: 5px;
 }
 
 .slide_title {
-    margin: 10px;
+    width: 95%;
+    height: 5%;
+    margin-top: 10px;
+    align-self: center;
     font-size: 1.5em;
     font-weight: 400;
     color: #901C1C;
