@@ -256,18 +256,21 @@ form {
     font-weight: 500;
 }
 
-.gallery_image span div i {
-    width: 23px;
-    height: 24px;
-    margin-left: 5px;
+.likes_icon {
     align-self: center;
-    font-size: 1.5em;
-    color: #901C1C;
+    padding-top: 5px;
+    background-color: transparent;
+    border: none;
     cursor: pointer;
 }
 
-.gallery_image span div i:focus {
+.likes_icon:focus {
     outline: 2px solid #901C1C;
+}
+
+.likes_icon i {
+    font-size: 1.5em;
+    color: #901C1C;
 }
 
 #lightbox_modal {

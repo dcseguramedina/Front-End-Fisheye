@@ -18,7 +18,7 @@
       </a>
     </header>
 
-    <main id="main">
+    <main id="main" aria-label="Rubrique de la page du photographe">
       <header class="photographer_header" aria-label="En-tête des informations sur le photographe">
         <span class="photographer_info" aria-label="Détails du photographe"></span>
         <button id="contact_button" name="Contactez-moi" type="button">Contactez-moi</button>
@@ -26,15 +26,15 @@
       </header>
       
       <section class="photographer_gallery" aria-label="Galerie de photographes">
-        <span class="photographer_gallery_filter">
+        <span class="photographer_gallery_filter" aria-label="Filtre">
           <label class="filter_text" for="filter">Trier par</label>
-          <select id="filter" class="filter_select" name="filter">
+          <select id="filter" class="filter_select" name="Trier par">
             <option class="filter_option" value="popularity">Popularité</option>
             <option class="filter_option" value="date">Date</option>
             <option class="filter_option" value="title">Titre</option>
           </select>
         </span>
-        <section class="photographer_gallery_medias"></section>
+        <section class="photographer_gallery_medias" aria-label="Liste des medias"></section>
       </section>
     </main>
     
@@ -42,7 +42,7 @@
       <div class="modal_content">
         <header>
           <h2>Contactez-moi</h2>
-          <button id="close_button">
+          <button id="close_button" name="Fermer le formulaire de contact">
             <img src="src/assets/icons/close-white.svg" alt="Icône de fermeture"/>
           </button>
         </header>
@@ -94,7 +94,7 @@
               class="text_control"
             ></textarea>
           </div>                  
-          <button id="submit_button" name="submit" type="submit">Envoyer</button>
+          <button id="submit_button" name="Envoyer" type="submit">Envoyer</button>
         </form>
       </div>
     </div>
@@ -103,7 +103,7 @@
       <div class="lightbox_content">
         <div class="lightbox_side">
           <button id="close_lightbox" >
-            <img src="src/assets/icons/close-red.png" alt="Fermer la boîte de dialogue"/>
+            <img src="src/assets/icons/close-red.png" alt="Fermer la vue rapprochée"/>
           </button>
           <button id="right">
             <img src="src/assets/icons/expand_more_right.png" alt="Image suivant"/>

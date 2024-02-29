@@ -23,7 +23,7 @@ export default class Photographer {
         //Create an "a" tag to make the link to a photographe
         const photoprapherLink = document.createElement("a")
         photoprapherLink.href = `./photographer.html?id=${this.id}`
-        photoprapherLink.setAttribute('aria-label', `Image avec lien vers la page du photographe`)
+        photoprapherLink.setAttribute('aria-label', `Image avec lien vers la page du photographe ${this.name}`)
         photographeArticle.appendChild(photoprapherLink)
 
         //Create an "img" tag for each photographe
@@ -91,6 +91,7 @@ export default class Photographer {
         // Create a "p" tag for the total of likes
         const likes = document.createElement("p")
         likes.className = "total_of_likes"
+        likes.setAttribute('aria-label', `le travail de ce photographe compte avec ${this.likes} likes en total`)
         likes.textContent = this.likes
         likesInfo.appendChild(likes)     
         
@@ -102,6 +103,7 @@ export default class Photographer {
 
         // Create a "p" tag for the price
         const price = document.createElement("p")
+        price.setAttribute('aria-label', `la tarif s'enlève à ${this.price} € par jour`)
         price.textContent = this.price + '€/jour'
         asideInfo.appendChild(price)        
     }

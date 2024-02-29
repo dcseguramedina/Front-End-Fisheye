@@ -30,7 +30,7 @@ class Medias {
         const mediaLink = document.createElement("a")
         mediaLink.className = "media_link"
         mediaLink.href = ``
-        mediaLink.setAttribute('aria-label', `Lien vers l'image du photographe`)
+        mediaLink.setAttribute('aria-label', `Lien vers la vue rapprochée de l'œuvre intitulé ${this.title} qui compte avec ${this.likes} likes`)
         mediaArticle.appendChild(mediaLink)
 
         mediaLink.appendChild(this.getSource())
@@ -60,23 +60,29 @@ class Medias {
         // Create a "p" tag for each media likes
         const mediaLikes = document.createElement("p")
         mediaLikes.className = "number_of_likes"
+        mediaLikes.setAttribute('aria-label', 'likes')
         mediaLikes.textContent = this.likes
         mediaLikesInfo.appendChild(mediaLikes)
+
+        const mediaLikesBtn = document.createElement("button")
+        mediaLikesBtn.className = "likes_icon"
+        mediaLikesBtn.setAttribute('type', 'button')
+        mediaLikesBtn.setAttribute('data-liked', 'unliked')
+        mediaLikesBtn.setAttribute('aria-label', 'Cliquez pour liker ce media')
+        mediaLikesInfo.appendChild(mediaLikesBtn)
         
         // Create a "I" tag for the icon
-        const mediaLikesIcon = document.createElement("i")
-        mediaLikesIcon.className = "likes_icon"
+        const mediaLikesIcon = document.createElement("i")        
         mediaLikesIcon.classList.add('fa-solid')
         mediaLikesIcon.classList.add('fa-heart')
-        mediaLikesIcon.setAttribute('data-liked', 'unliked')
-        mediaLikesIcon.setAttribute('tabindex', '0')
-        mediaLikesInfo.appendChild(mediaLikesIcon)
+        mediaLikesBtn.appendChild(mediaLikesIcon)
     } 
 
     displayLightbox() {   
         const lightboxBg = document.getElementById("lightbox_modal") 
         lightboxBg.style.display = "block"
         const lightboxSlide = document.querySelector(".lightbox_media")
+        lightboxSlide.setAttribute('aria-label', `vue rapprochée de l'œuvre intitulé ${this.title}`)
         lightboxSlide.appendChild(this.getLightboxSource())
 
         //Create a "h3" tag for each media title

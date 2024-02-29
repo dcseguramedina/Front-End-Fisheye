@@ -114,21 +114,22 @@ const likesIcon = document.querySelectorAll(".likes_icon")
 
 // Launch add likes event
 likesIcon.forEach((icon) => icon.addEventListener("click", (e) => {
-    e.preventDefault()
+        e.preventDefault()
     addLike(e)          
 }))
 
 // Launch add likes event with enter key
-likesIcon.forEach((icon) => icon.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') {
+likesIcon.forEach((icon) => icon.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") {
         addLike(e)
     }                 
 }))
 
 function addLike(e) {
-    if (e.target.getAttribute('data-liked') === "unliked") {
-        e.target.previousSibling.textContent++
+    if (e.currentTarget.getAttribute('data-liked') === "unliked") {
+        console.log("hello if")
+        e.currentTarget.previousSibling.textContent++
         totalOfLikes.textContent++
-        e.target.setAttribute("data-liked", "liked")
+        e.currentTarget.setAttribute("data-liked", "liked")
     }
 }
