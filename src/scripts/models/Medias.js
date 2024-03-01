@@ -33,6 +33,7 @@ class Medias {
     mediaLink.setAttribute('aria-label', `Lien vers la vue rapprochée de l'œuvre intitulé ${this.title} qui compte avec ${this.likes} likes`)
     mediaArticle.appendChild(mediaLink)
 
+    // Get the media source from ImageMedia or VideoMedia (subclass) depending on the data content
     mediaLink.appendChild(this.getSource())
 
     // Launch open lightbox event
@@ -80,8 +81,11 @@ class Medias {
   displayLightbox () {
     const lightboxBg = document.getElementById('lightbox_modal')
     lightboxBg.style.display = 'block'
+
     const lightboxSlide = document.querySelector('.lightbox_media')
-    lightboxSlide.setAttribute('aria-label', `vue rapprochée de l'œuvre intitulé ${this.title}`)
+    lightboxSlide.setAttribute('aria-label', `Vue rapprochée de l'œuvre intitulé ${this.title}`)
+
+    // Get the lightbox source from ImageMedia or VideoMedia (subclass) depending on the data content
     lightboxSlide.appendChild(this.getLightboxSource())
 
     // Create a "h3" tag for each media title
@@ -142,8 +146,7 @@ class Medias {
     const items = galleryMedias.childNodes
     const itemsList = []
 
-    // eslint-disable-next-line prefer-const
-    for (let i in items) {
+    for (const i in items) {
     // get rid of the whitespace text nodes
       if (items[i].nodeType === 1) {
         itemsList.push(items[i])
@@ -151,7 +154,8 @@ class Medias {
     }
 
     // Update the current index based on the navigation direction
-    const currentMedia = itemsList[currentMediaIndex += direction]
+    const navDirection = currentMediaIndex += direction
+    const currentMedia = itemsList[navDirection]
 
     // Wrap around to the first/last image if necessary
     if (currentMediaIndex < 0) {

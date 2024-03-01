@@ -1,17 +1,18 @@
-import { ImageMedia, VideoMedia } from "../models/Medias.js";
+// Image and video display management
+
+/* eslint-disable no-useless-constructor */
+import { ImageMedia, VideoMedia } from '../models/Medias.js'
 
 export default class MediaFactory {
-    constructor() {}
+  constructor () {}
 
-    buildMedia(id, photographerId, title, source, likes, date, price, type = 'image') {
-        if (type === 'image') {
-            return new ImageMedia(id, photographerId, title, source, likes, date, price) 
-        // Otherwise return the video format
-        } else if (type === 'video') {
-            return new VideoMedia(id, photographerId, title, source, likes, date, price) 
-        // Send an error if the format is not recognized
-        } else {
-            throw `Format de type inconnu`
-        }
+  buildMedia (id, photographerId, title, source, likes, date, price, type = 'image') {
+    if (type === 'image') {
+      return new ImageMedia(id, photographerId, title, source, likes, date, price)
+    } else if (type === 'video') {
+      return new VideoMedia(id, photographerId, title, source, likes, date, price)
+    } else {
+      throw new RangeError('Format de type inconnu')
     }
+  }
 }

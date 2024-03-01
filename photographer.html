@@ -20,7 +20,7 @@
 
     <main id="main" aria-label="Rubrique de la page du photographe">
       <header class="photographer_header" aria-label="En-tête des informations sur le photographe">
-        <span class="photographer_info" aria-label="Détails du photographe"></span>
+        <span class="photographer_info"></span>
         <button id="contact_button" name="Contactez-moi" type="button">Contactez-moi</button>
         <img class="photographer_portrait" src="" alt="">
       </header>
@@ -102,17 +102,17 @@
     <div id="lightbox_modal" aria-label="Vue rapprochée de l'image" role="Dialogue">      
       <div class="lightbox_content">
         <div class="lightbox_side">
-          <button id="close_lightbox" >
-            <img src="src/assets/icons/close-red.png" alt="Fermer la vue rapprochée"/>
+          <button id="close_lightbox" type="button" name="Fermer la vue rapprochée">
+            <img src="src/assets/icons/close-red.png" alt="Icône de fermeture"/>
           </button>
-          <button id="right">
-            <img src="src/assets/icons/expand_more_right.png" alt="Image suivant"/>
+          <button id="right" type="button" name="Image suivant">
+            <img src="src/assets/icons/expand_more_right.png" alt="Icône flèche droite"/>
           </button>     
         </div>
         <a class="lightbox_media" href="#"></a>
         <div class="lightbox_side">
-          <button id="left">
-            <img src="src/assets/icons/expand_more_left.png" alt="Image précédente"/>
+          <button id="left" type="button" name="Image précédente">
+            <img src="src/assets/icons/expand_more_left.png" alt="Icône flèche gauche"/>
           </button>
         </div>                 
       </div>

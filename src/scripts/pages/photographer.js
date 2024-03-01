@@ -2,6 +2,7 @@ import getData from '../../scripts/services/data.services.js'
 import Photographer from '../../scripts/models/Photographer.js'
 import MediaFactory from '../../scripts/factories/MediasFactory.js'
 
+// Get photographer Id in order to recover the list of medias
 const getPhotographerId = () => {
   return parseInt(new URL(window.location.href).searchParams.get('id'), 10)
 }
@@ -17,8 +18,9 @@ function displayPhotographerPage (data) {
   const photographerInfo = photographers.find((p) => p.id === photographerId)
   const medias = data.medias
   const mediasInfo = medias.filter((m) => m.photographerId === photographerId)
-  const mediasLikes = mediasInfo.map((l) => l.likes)
 
+  // Get media likes info to manage the total of likes to display in the aside
+  const mediasLikes = mediasInfo.map((l) => l.likes)
   // Use reduce() method to find the total of likes
   const totalOfLikes = mediasLikes.reduce((accumulator, currentValue) => {
     return accumulator + currentValue
@@ -41,8 +43,7 @@ function displayPhotographerPage (data) {
 }
 
 function displayGalley (mediasInfo) {
-  // eslint-disable-next-line prefer-const
-  for (let info of mediasInfo) {
+  for (const info of mediasInfo) {
     const media = factory.buildMedia(
       info.id,
       info.photographerId,
@@ -55,30 +56,30 @@ function displayGalley (mediasInfo) {
     )
     media.displayMedias()
   }
-  // Add default filter - popularity
+  // Add default filter - popularity to display medias
   sortMedias()
 }
 
+// HANDLE FILTER //
 function filterGallery () {
   const filter = document.getElementById('filter')
 
   // Launch filter event
   filter.addEventListener('click', (e) => {
     e.preventDefault()
-    sortMedias()
+    const option = filter.options[filter.selectedIndex].value
+    sortMedias(option)
   })
 }
 filterGallery()
 
-function sortMedias () {
-  const option = filter.options[filter.selectedIndex].value
+function sortMedias (option) {
   // Get the list of medias from the DOM
   const gallery = document.querySelector('.photographer_gallery_medias')
   const items = gallery.childNodes
   const itemsList = []
 
-  // eslint-disable-next-line prefer-const
-  for (let i in items) {
+  for (const i in items) {
     // get rid of the whitespace text nodes
     if (items[i].nodeType === 1) {
       itemsList.push(items[i])
@@ -98,8 +99,9 @@ function sortMedias () {
     }
   })
 
-  for (let i = 0; i < itemsList.length; ++i) {
-    gallery.appendChild(itemsList[i])
+  // Replace the list from the DOM
+  for (const element of itemsList) {
+    gallery.appendChild(element)
   }
 }
 

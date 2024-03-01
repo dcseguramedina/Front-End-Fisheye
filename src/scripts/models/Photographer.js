@@ -1,110 +1,108 @@
 export default class Photographer {
-    
-    constructor(name, id, city, country, tagline, price, portrait, likes) {
-        this.name = name
-        this.id = id
-        this.city = city
-        this.country = country
-        this.tagline = tagline
-        this.price = price
-        this.portrait = portrait
-        this.likes = likes
-    }
+  constructor (name, id, city, country, tagline, price, portrait, likes) {
+    this.name = name
+    this.id = id
+    this.city = city
+    this.country = country
+    this.tagline = tagline
+    this.price = price
+    this.portrait = portrait
+    this.likes = likes
+  }
 
-    displayCardInfo() {
-        const photographersSection = document.querySelector(".photographers_section")    
-        
-        //Create an "article" tag dedicated to a photographe
-        const photographeArticle = document.createElement("article")
-        photographeArticle.className = "photographer_details"
-        photographeArticle.setAttribute('aria-label', 'Détails du photographe')
-        photographersSection.appendChild(photographeArticle)
+  displayCardInfo () {
+    const photographersSection = document.querySelector('.photographers_section')
 
-        //Create an "a" tag to make the link to a photographe
-        const photoprapherLink = document.createElement("a")
-        photoprapherLink.href = `./photographer.html?id=${this.id}`
-        photoprapherLink.setAttribute('aria-label', `Image avec lien vers la page du photographe ${this.name}`)
-        photographeArticle.appendChild(photoprapherLink)
+    // Create an "article" tag dedicated to a photographe
+    const photographerArticle = document.createElement('article')
+    photographerArticle.className = 'photographer_details'
+    photographersSection.appendChild(photographerArticle)
 
-        //Create an "img" tag for each photographe
-        const photographeImage = document.createElement("img")
-        photographeImage.src = `../../src/assets/photographers/${this.portrait}`
-        photographeImage.alt = 'Portrait du photographe' + this.name   
-        photoprapherLink.appendChild(photographeImage)
+    // Create an "a" tag to make the link to a photographe
+    const photographerLink = document.createElement('a')
+    photographerLink.href = `./photographer.html?id=${this.id}`
+    photographerLink.setAttribute('aria-label', `Image avec lien vers la page du photographe ${this.name}`)
+    photographerArticle.appendChild(photographerLink)
 
-        //Create a "h2" tag for each photographe
-        const photographeName = document.createElement("h2")        
-        photographeName.textContent = this.name
-        photoprapherLink.appendChild(photographeName)
+    // Create an "img" tag for each photographe
+    const photographerImage = document.createElement('img')
+    photographerImage.src = `../../src/assets/photographers/${this.portrait}`
+    photographerImage.alt = 'Portrait du photographe' + this.name
+    photographerLink.appendChild(photographerImage)
 
-        //Create a "h3" tag for each photographe
-        const photographeLocation = document.createElement("h3")
-        photographeLocation.textContent = this.city + ', ' + this.country
-        photographeArticle.appendChild(photographeLocation)
+    // Create a "h2" tag for each photographe
+    const photographerName = document.createElement('h2')
+    photographerName.textContent = this.name
+    photographerLink.appendChild(photographerName)
 
-        //Create a "span" tag for each photographe
-        const photographeTagline = document.createElement("span")
-        photographeTagline.textContent = this.tagline
-        photographeArticle.appendChild(photographeTagline)
+    // Create a "h3" tag for each photographe
+    const photographerLocation = document.createElement('h3')
+    photographerLocation.textContent = this.city + ', ' + this.country
+    photographerArticle.appendChild(photographerLocation)
 
-        //Create a "p" tag for each photographe
-        const photographePrice = document.createElement("p")
-        photographePrice.textContent = this.price + '€/jour'
-        photographeArticle.appendChild(photographePrice)
-    }
+    // Create a "span" tag for each photographe
+    const photographerTagline = document.createElement('span')
+    photographerTagline.textContent = this.tagline
+    photographerArticle.appendChild(photographerTagline)
 
-    displayHeaderInfo() {
-        const photographeDetails = document.querySelector(".photographer_info")       
+    // Create a "p" tag for each photographe
+    const photographerPrice = document.createElement('p')
+    photographerPrice.textContent = this.price + '€/jour'
+    photographerArticle.appendChild(photographerPrice)
+  }
 
-        // Create a "h1" tag for the name
-        const photographeName = document.createElement("h1")        
-        photographeName.textContent = this.name
-        photographeDetails.appendChild(photographeName)
+  displayHeaderInfo () {
+    const photographerDetails = document.querySelector('.photographer_info')
 
-        // Create a "h2" tag for the location
-        const photographeLocation = document.createElement("h2")
-        photographeLocation.textContent = this.city + ', ' + this.country
-        photographeDetails.appendChild(photographeLocation)
- 
-        // Create a "p" tag for the tagline
-        const photographeTagline = document.createElement("p")
-        photographeTagline.textContent = this.tagline
-        photographeDetails.appendChild(photographeTagline)
+    // Create a "h1" tag for the name
+    const photographerName = document.createElement('h1')
+    photographerName.textContent = this.name
+    photographerDetails.appendChild(photographerName)
 
-        // Set the image attributs
-        const photographeImage = document.querySelector(".photographer_portrait")        
-        photographeImage.src = `../../src/assets/photographers/${this.portrait}`
-        photographeImage.alt = 'Portrait du photographe ' + this.name
-    }
+    // Create a "h2" tag for the location
+    const photographerLocation = document.createElement('h2')
+    photographerLocation.textContent = this.city + ', ' + this.country
+    photographerDetails.appendChild(photographerLocation)
 
-    displayAside() {
-        const main = document.querySelector("#main")
-        
-        // Create a "aside" tag to display likes and price
-        const asideInfo = document.createElement("aside")
-        main.appendChild(asideInfo)  
+    // Create a "p" tag for the tagline
+    const photographerTagline = document.createElement('p')
+    photographerTagline.textContent = this.tagline
+    photographerDetails.appendChild(photographerTagline)
 
-        // Create a "div" tag to contains likes and icon
-        const likesInfo = document.createElement("div")
-        asideInfo.appendChild(likesInfo)
+    // Set the image attributs
+    const photographerImage = document.querySelector('.photographer_portrait')
+    photographerImage.src = `../../src/assets/photographers/${this.portrait}`
+    photographerImage.alt = 'Portrait du photographe ' + this.name
+  }
 
-        // Create a "p" tag for the total of likes
-        const likes = document.createElement("p")
-        likes.className = "total_of_likes"
-        likes.setAttribute('aria-label', `le travail de ce photographe compte avec ${this.likes} likes en total`)
-        likes.textContent = this.likes
-        likesInfo.appendChild(likes)     
-        
-        // Create a "i" tag for the like icon
-        const likesIcon = document.createElement("i")
-        likesIcon.classList.add('fa-solid')
-        likesIcon.classList.add('fa-heart')
-        likesInfo.appendChild(likesIcon)
+  displayAside () {
+    const main = document.querySelector('#main')
 
-        // Create a "p" tag for the price
-        const price = document.createElement("p")
-        price.setAttribute('aria-label', `la tarif s'enlève à ${this.price} € par jour`)
-        price.textContent = this.price + '€/jour'
-        asideInfo.appendChild(price)        
-    }
+    // Create an "aside" tag to display likes and price
+    const asideInfo = document.createElement('aside')
+    main.appendChild(asideInfo)
+
+    // Create a "div" tag to contains likes and icon
+    const likesInfo = document.createElement('div')
+    asideInfo.appendChild(likesInfo)
+
+    // Create a "p" tag for the total of likes
+    const likes = document.createElement('p')
+    likes.className = 'total_of_likes'
+    likes.setAttribute('aria-label', `le travail de ce photographe compte avec ${this.likes} likes en total`)
+    likes.textContent = this.likes
+    likesInfo.appendChild(likes)
+
+    // Create a "i" tag for the like icon
+    const likesIcon = document.createElement('i')
+    likesIcon.classList.add('fa-solid')
+    likesIcon.classList.add('fa-heart')
+    likesInfo.appendChild(likesIcon)
+
+    // Create a "p" tag for the price
+    const price = document.createElement('p')
+    price.setAttribute('aria-label', `et sa tarif s'enlève à ${this.price} € par jour`)
+    price.textContent = this.price + '€/jour'
+    asideInfo.appendChild(price)
+  }
 }

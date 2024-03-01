@@ -56,7 +56,7 @@
     cursor: pointer;
 }
 
-#contact_button:hover, #contact_button:focus {
+#contact_button:hover {
     outline: 4px solid #D3573C;
     background-color: #D3573C;
     color: black;
@@ -112,10 +112,6 @@
     cursor: pointer;
 }
 
-#close_button:focus {
-    outline: 4px solid #901C1C;
-}
-
 form {
     display: flex;
     width: 100%;
@@ -143,10 +139,6 @@ form {
     border-radius: 5px;
     color: #312E2E;
     font-size: 36px;
-}
-
-.text_control:focus {
-    outline: 4px solid #901C1C;
 }
 
 .errorMsg {
@@ -219,10 +211,6 @@ form {
 	text-decoration: none;
 }
 
-.media_link:focus {
-    outline: 4px solid #901C1C;
-}
-
 .media_source {
 	width: 400px;
 	height: 350px;
@@ -262,10 +250,6 @@ form {
     background-color: transparent;
     border: none;
     cursor: pointer;
-}
-
-.likes_icon:focus {
-    outline: 2px solid #901C1C;
 }
 
 .likes_icon i {
@@ -319,10 +303,6 @@ form {
     cursor: pointer;
 }
 
-#right:focus, #left:focus, #close_lightbox:focus {
-    outline: 4px solid #901C1C;
-}
-
 .lightbox_media {
     display: flex;
     flex-direction: column;
@@ -330,10 +310,6 @@ form {
     width: 85%;
     height: 90%;
     text-decoration: none;
-}
-
-.lightbox_media:focus {
-    outline: 4px solid #901C1C;
 }
 
 .slide_source {

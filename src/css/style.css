@@ -25,11 +25,6 @@ header {
     height: 90px; 
 }
 
-header a:focus {
-    outline: 4px solid #901C1C;
-    background: #FAFAFA;
-}
-
 .logo {
     height: 50px;    
     margin-left: 100px; 
@@ -67,11 +62,6 @@ main {
     justify-self: center;
     align-items: center;
     text-decoration: none;
-}
-
-.photographer_details a:focus {
-    outline: 4px solid #901C1C;
-    background: #FAFAFA;
 }
 
 .photographer_details a img {
