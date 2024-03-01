@@ -105,3 +105,9 @@ main {
     font-size: 0.8em;
     color: #646363;
 }
+
+footer {
+    display: flex;
+    justify-content: right;
+    padding-top: 50px;
+}
