@@ -141,28 +141,18 @@ class Medias {
   }
 
   navigateLightbox (direction) {
-    // Get the list of medias from the DOM
     const galleryMedias = document.querySelector('.photographer_gallery_medias')
     const items = galleryMedias.childNodes
-    const itemsList = []
+    const itemsList = Array.from(items).filter(item => item.nodeType === 1)
 
-    for (const i in items) {
-    // get rid of the whitespace text nodes
-      if (items[i].nodeType === 1) {
-        itemsList.push(items[i])
-      }
-    }
-
-    // Update the current index based on the navigation direction
-    const navDirection = currentMediaIndex += direction
-    const currentMedia = itemsList[navDirection]
-
-    // Wrap around to the first/last image if necessary
+    currentMediaIndex += direction
     if (currentMediaIndex < 0) {
       currentMediaIndex = itemsList.length - 1
     } else if (currentMediaIndex >= itemsList.length) {
       currentMediaIndex = 0
     }
+
+    const currentMedia = itemsList[currentMediaIndex]
     this.updateLightbox(currentMedia)
   }
 
