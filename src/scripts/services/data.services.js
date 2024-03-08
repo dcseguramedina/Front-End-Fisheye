@@ -2,7 +2,7 @@
 
 export default async function getData () {
   try {
-    const response = await fetch('../src/data/photographers.json')
+    const response = await fetch('src/data/photographers.json')
     const data = await response.json()
     return data
   } catch (error) {

@@ -64,6 +64,7 @@ class Medias {
     mediaLikes.textContent = this.likes
     mediaLikesInfo.appendChild(mediaLikes)
 
+    // Create a "button" tag for each media likes
     const mediaLikesBtn = document.createElement('button')
     mediaLikesBtn.className = 'likes_icon'
     mediaLikesBtn.setAttribute('type', 'button')

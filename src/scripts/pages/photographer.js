@@ -48,7 +48,7 @@ function displayGalley (mediasInfo) {
       info.id,
       info.photographerId,
       info.title,
-      info.image ? `../../src/assets/medias/${info.image}` : `../../src/assets/medias/${info.video}`,
+      info.image ? `src/assets/medias/${info.image}` : `src/assets/medias/${info.video}`,
       info.likes,
       info.date,
       info.price,

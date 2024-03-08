@@ -20,13 +20,13 @@ export default class Photographer {
 
     // Create an "a" tag to make the link to a photographe
     const photographerLink = document.createElement('a')
-    photographerLink.href = `./photographer.html?id=${this.id}`
+    photographerLink.href = `photographer.html?id=${this.id}`
     photographerLink.setAttribute('aria-label', `Image avec lien vers la page du photographe ${this.name}`)
     photographerArticle.appendChild(photographerLink)
 
     // Create an "img" tag for each photographe
     const photographerImage = document.createElement('img')
-    photographerImage.src = `../../src/assets/photographers/${this.portrait}`
+    photographerImage.src = `src/assets/photographers/${this.portrait}`
     photographerImage.alt = 'Portrait du photographe' + this.name
     photographerLink.appendChild(photographerImage)
 
@@ -71,7 +71,7 @@ export default class Photographer {
 
     // Set the image attributs
     const photographerImage = document.querySelector('.photographer_portrait')
-    photographerImage.src = `../../src/assets/photographers/${this.portrait}`
+    photographerImage.src = `src/assets/photographers/${this.portrait}`
     photographerImage.alt = 'Portrait du photographe ' + this.name
   }
 
