@@ -4,9 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Travail des photographes">
-    <link href="src/css/style.css" rel="stylesheet" type="text/css" />
-    <link href="src/assets/favicon.png" rel="icon" type="image/png"  />
-    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet" />
+    <link href="src/css/style.css" rel="stylesheet" type="text/css">
+    <link href="src/assets/favicon.png" rel="icon" type="image/png">
+    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/991beb3e09.js" crossorigin="anonymous"></script>
     <title>Fisheye - photographer </title>
   </head>
@@ -14,7 +14,7 @@
   <body>
     <header aria-label="En-tête de la page d'accueil">
       <a href="index.html" aria-label="Image avec lien vers la page d'accueil Fisheye">
-        <img class="logo" src="src/assets/images/logo.png" alt="Fisheye logo"/>
+        <img class="logo" src="src/assets/images/logo.png" alt="Fisheye logo">
       </a>
     </header>
 
@@ -22,11 +22,11 @@
       <header class="photographer_header" aria-label="En-tête des informations sur le photographe">
         <span class="photographer_info"></span>
         <button id="contact_button" name="Contactez-moi" type="button">Contactez-moi</button>
-        <img class="photographer_portrait" src="" alt="">
+        <img class="photographer_portrait" src="#" alt="#">
       </header>
       
       <section class="photographer_gallery" aria-label="Galerie de photographes">
-        <span class="photographer_gallery_filter" aria-label="Filtre">
+        <span class="photographer_gallery_filter">
           <label class="filter_text" for="filter">Trier par</label>
           <select id="filter" class="filter_select" name="Trier par">
             <option class="filter_option" value="popularity">Popularité</option>
@@ -38,12 +38,12 @@
       </section>
     </main>
     
-    <div id="contact_modal" aria-label="Fenêtre contextuelle modale" role="Dialogue">
+    <div id="contact_modal" aria-label="Fenêtre contextuelle modale" role="dialog">
       <div class="modal_content">
         <header>
           <h2>Contactez-moi</h2>
           <button id="close_button" name="Fermer le formulaire de contact">
-            <img src="src/assets/icons/close-white.svg" alt="Icône de fermeture"/>
+            <img src="src/assets/icons/close-white.svg" alt="Icône de fermeture">
           </button>
         </header>
         <form
@@ -61,7 +61,7 @@
               name="firstName"
               minlength="2"
               required
-            />
+            >
             <p id="firstNameErrorMsg" class="errorMsg"></p>
           </div>
           <div class="form_data">
@@ -73,7 +73,7 @@
               name="lastName"
               minlength="2"
               required
-            />
+            >
             <p id="lastNameErrorMsg" class="errorMsg"></p>
           </div>
           <div class="form_data">
@@ -84,7 +84,7 @@
               type="email"
               name="email"
               required
-            />
+            >
             <p id="emailErrorMsg" class="errorMsg"></p>
           </div>
           <div class="form_data">
@@ -99,20 +99,20 @@
       </div>
     </div>
     
-    <div id="lightbox_modal" aria-label="Vue rapprochée de l'image" role="Dialogue">      
+    <div id="lightbox_modal" aria-label="Vue rapprochée de l'image" role="dialog">     
       <div class="lightbox_content">
         <div class="lightbox_side">
           <button id="close_lightbox" type="button" name="Fermer la vue rapprochée">
-            <img src="src/assets/icons/close-red.png" alt="Icône de fermeture"/>
+            <img src="src/assets/icons/close-red.png" alt="Icône de fermeture">
           </button>
           <button id="right" type="button" name="Image suivant">
-            <img src="src/assets/icons/expand_more_right.png" alt="Icône flèche droite"/>
+            <img src="src/assets/icons/expand_more_right.png" alt="Icône flèche droite">
           </button>     
         </div>
         <a class="lightbox_media" href="#"></a>
         <div class="lightbox_side">
           <button id="left" type="button" name="Image précédente">
-            <img src="src/assets/icons/expand_more_left.png" alt="Icône flèche gauche"/>
+            <img src="src/assets/icons/expand_more_left.png" alt="Icône flèche gauche">
           </button>
         </div>                 
       </div>
