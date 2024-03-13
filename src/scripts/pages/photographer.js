@@ -76,17 +76,10 @@ filterGallery()
 function sortMedias (option) {
   // Get the list of medias from the DOM
   const gallery = document.querySelector('.photographer_gallery_medias')
-  const items = gallery.childNodes
-  const itemsList = []
+  const items = Array.from(gallery.children)
+    .filter(item => item.nodeType === 1)
 
-  for (const i in items) {
-    // get rid of the whitespace text nodes
-    if (items[i].nodeType === 1) {
-      itemsList.push(items[i])
-    }
-  }
-
-  itemsList.sort(function (a, b) {
+  items.sort((a, b) => {
     switch (option) {
       case 'title':
         return (a.getAttribute('data-title') < b.getAttribute('data-title')) ? -1 : 1
@@ -100,9 +93,7 @@ function sortMedias (option) {
   })
 
   // Replace the list from the DOM
-  for (const element of itemsList) {
-    gallery.appendChild(element)
-  }
+  items.forEach(element => gallery.appendChild(element))
 }
 
 // HANDLE LIKES //
